@@ -1,0 +1,25 @@
+{
+  "name": "rex",
+  "version": "0.1.0",
+  "private": "true",
+  "description": "Exotic components, hooks and functions that you wouldn't find in the usual react component library.",
+  "scripts": {
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rico Maier <rico.maier@etecture.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.31",
+    "@types/react-dom": "^18.2.14",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^6.1.0",
+    "prettier": "^3.0.3"
+  }
+}
