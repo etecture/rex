@@ -1,0 +1,25 @@
+{
+  "name": "@rex/scrollbar",
+  "version": "0.1.0",
+  "description": "A customizable scrollbar that just works",
+  "main": "dist/Scrollbar.js",
+  "types": "dist/Scrollbar.d.ts",
+  "keywords": [],
+  "author": "Rico Maier <rico.maier@etecture.de>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && rexb build src/Scrollbar.tsx",
+    "dev": "rexb build src/Scrollbar.tsx --watch"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "@rex/use-resize-observer": "^0.1.0"
+  },
+  "devDependencies": {
+    "@rex/builder": "^0.1.0"
+  }
+}

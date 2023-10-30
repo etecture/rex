@@ -1,0 +1,97 @@
+.scrollContainer {
+  --rex-scrollbar-thumb-color: rgba(0, 0, 0, 0.8);
+  --rex-scrollbar-offset: 2px;
+  --rex-scrollbar-width: 10px;
+  --rex-scrollbar-padding: 1px;
+
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  max-height: 100%;
+
+  & .content {
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  & .verticalTrack {
+    top: var(--rex-scrollbar-offset);
+    bottom: var(--rex-scrollbar-offset);
+    right: var(--rex-scrollbar-offset);
+    width: var(--rex-scrollbar-width);
+
+    & .scrollbarThumb {
+      width: calc(var(--rex-scrollbar-width) - calc(var(--rex-scrollbar-padding) * 2));
+      height: 50%;
+      min-height: 40px;
+    }
+  }
+
+  & .horizontalTrack {
+    left: var(--rex-scrollbar-offset);
+    bottom: var(--rex-scrollbar-offset);
+    right: var(--rex-scrollbar-offset);
+    height: var(--rex-scrollbar-width);
+
+    & .scrollbarThumb {
+      height: calc(var(--rex-scrollbar-width) - calc(var(--rex-scrollbar-padding) * 2));
+      width: 50%;
+      min-width: 40px;
+    }
+  }
+
+  & .horizontalTrack,
+  & .verticalTrack {
+    position: absolute;
+    user-select: none;
+    padding: var(--rex-scrollbar-padding);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+    transition:
+      opacity 240ms,
+      visibility 240ms;
+
+    & .scrollbarThumb {
+      position: absolute;
+      pointer-events: all;
+      background: var(--rex-scrollbar-thumb-color);
+      opacity: 0.5;
+      border-radius: 10px;
+    }
+  }
+
+  &.hasVerticalScroll.visible,
+  &.hasVerticalScroll:hover {
+    padding-right: var(--scroller-horizontal-offset);
+
+    & > .verticalTrack {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    & > .horizontalTrack {
+      right: calc(var(--rex-scrollbar-offset) + var(--rex-scrollbar-width));
+    }
+  }
+
+  &.hasHorizontalScroll.visible,
+  &.hasHorizontalScroll:hover {
+    padding-bottom: var(--scroller-horizontal-offset);
+
+    & > .horizontalTrack {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    & > .verticalTrack {
+      bottom: calc(var(--rex-scrollbar-offset) + var(--rex-scrollbar-width));
+    }
+  }
+}

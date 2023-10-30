@@ -1,0 +1,21 @@
+{
+  "name": "@rex/use-resize-observer",
+  "version": "0.1.0",
+  "description": "A utility hook to use the native ResizeObserver API",
+  "main": "dist/useResizeObserver.js",
+  "types": "dist/useResizeObserver.d.ts",
+  "keywords": [],
+  "author": "Rico Maier <rico.maier@etecture.de>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && rexb build src/useResizeObserver.ts",
+    "dev": "rexb build src/useResizeObserver.ts --watch"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@rex/builder": "^0.1.0"
+  }
+}
