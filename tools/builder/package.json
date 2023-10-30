@@ -1,0 +1,22 @@
+{
+  "name": "@rex/builder",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A build cli based on bun",
+  "type": "module",
+  "bin": {
+    "rexb": "bin/rexb"
+  },
+  "scripts": {
+    "build": "bun build --compile src/main.ts --target=bun --outfile=bin/rexb"
+  },
+  "author": "Rico Maier <rico.maier@etecture.de>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.0.7",
+    "typescript": "^5.2.2"
+  }
+}

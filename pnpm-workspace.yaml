@@ -1,2 +1,5 @@
 packages:
-  - "src/**/*"
+  - "components/**"
+  - "hooks/**"
+  - "tools/**"
+  - "storybook/**"

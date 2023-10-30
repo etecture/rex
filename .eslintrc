@@ -9,7 +9,8 @@
     "plugin:react/jsx-runtime",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:storybook/recommended"
   ],
 
   "settings": {
@@ -56,6 +57,18 @@
     {
       "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
       "extends": ["plugin:testing-library/react"]
+    },
+    {
+      "files": ["*.stories.tsx"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    },
+    {
+      "files": ["tools/builder/**/*"],
+      "rules": {
+        "no-console": "off"
+      }
     }
   ]
 }
