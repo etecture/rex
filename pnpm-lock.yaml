@@ -81,37 +81,87 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
-  components/Scrollbar:
+  core:
     dependencies:
-      '@rex/use-resize-observer':
-        specifier: ^0.1.0
-        version: link:../../hooks/useResizeObserver
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
+    devDependencies:
+      '@etecture/rex-builder':
+        specifier: ^0.1.0
+        version: link:../tools/builder
+      '@storybook/addon-essentials':
+        specifier: ^7.6.0-alpha.2
+        version: 7.6.0-alpha.2(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/addon-interactions':
+        specifier: ^7.6.0-alpha.2
+        version: 7.6.0-alpha.2(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/addon-links':
+        specifier: ^7.6.0-alpha.2
+        version: 7.6.0-alpha.2(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/addon-onboarding':
+        specifier: ^1.0.8
+        version: 1.0.8(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/blocks':
+        specifier: ^7.6.0-alpha.2
+        version: 7.6.0-alpha.2(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/react':
+        specifier: ^7.6.0-alpha.2
+        version: 7.6.0-alpha.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
+      '@storybook/react-vite':
+        specifier: ^7.6.0-alpha.2
+        version: 7.6.0-alpha.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(vite@4.5.0)
+      '@storybook/testing-library':
+        specifier: ^0.2.2
+        version: 0.2.2
+      '@types/react':
+        specifier: ^18.2.31
+        version: 18.2.31
+      '@types/react-dom':
+        specifier: ^18.2.14
+        version: 18.2.14
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.9.0
+        version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
+      '@typescript-eslint/parser':
+        specifier: ^6.9.0
+        version: 6.9.0(eslint@8.52.0)(typescript@5.2.2)
+      eslint:
+        specifier: ^8.52.0
+        version: 8.52.0
+      eslint-plugin-import:
+        specifier: ^2.29.0
+        version: 2.29.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)
+      eslint-plugin-prettier:
+        specifier: ^5.0.1
+        version: 5.0.1(eslint@8.52.0)(prettier@3.0.3)
+      eslint-plugin-react:
+        specifier: ^7.33.2
+        version: 7.33.2(eslint@8.52.0)
+      eslint-plugin-react-hooks:
+        specifier: ^4.6.0
+        version: 4.6.0(eslint@8.52.0)
+      eslint-plugin-storybook:
+        specifier: ^0.6.15
+        version: 0.6.15(eslint@8.52.0)(typescript@5.2.2)
+      eslint-plugin-testing-library:
+        specifier: ^6.1.0
+        version: 6.1.0(eslint@8.52.0)(typescript@5.2.2)
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
       react:
         specifier: ^18.2.0
         version: 18.2.0
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
-    devDependencies:
-      '@rex/builder':
-        specifier: ^0.1.0
-        version: link:../../tools/builder
-
-  hooks/useResizeObserver:
-    dependencies:
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-    devDependencies:
-      '@rex/builder':
-        specifier: ^0.1.0
-        version: link:../../tools/builder
+      storybook:
+        specifier: 7.6.0-alpha.2
+        version: 7.6.0-alpha.2
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
 
   tools/builder:
     dependencies:
@@ -6589,6 +6639,7 @@ packages:
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
 
   /js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
@@ -6782,6 +6833,7 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: true
 
   /lru-cache@10.0.1:
     resolution: {integrity: sha512-IJ4uwUTi2qCccrioU6g9g/5rvvVl13bsdczUUcqbciD9iLr095yj8DQKdObriEvuNSx325N1rV1O0sJFszx75g==}
@@ -7663,6 +7715,7 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: true
 
   /react-element-to-jsx-string@15.0.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-UDg4lXB6BzlobN60P8fHWVPX3Kyw8ORrTeBtClmIlGdkOOE+GYQSFvmEU5iLLpwp/6v42DINwNcwOhOLfQ//FQ==}
@@ -7759,6 +7812,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /read-pkg-up@7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -8029,6 +8083,7 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /semver@5.7.2:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}

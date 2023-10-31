@@ -1,5 +1,5 @@
 {
-  "name": "@rex/builder",
+  "name": "@etecture/rex-builder",
   "private": true,
   "version": "0.1.0",
   "description": "A build cli based on bun",

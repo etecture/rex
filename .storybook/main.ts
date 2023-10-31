@@ -1,6 +1,6 @@
 import { StorybookConfig } from "@storybook/react-vite";
 
-const storyDirectories = ["components", "hooks"];
+const storyDirectories = ["core"];
 const stories = storyDirectories
   .map((it) => [`../${it}/**/*.mdx`, `../${it}/**/*.stories.@(js|jsx|mjs|ts|tsx)`])
   .reduce((stories, current) => stories.concat(...current), []);

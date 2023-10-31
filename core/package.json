@@ -1,16 +1,30 @@
 {
-  "name": "root",
+  "name": "@etecture/rex",
   "version": "0.1.0",
   "description": "Exotic components, hooks and functions that you wouldn't find in the usual react component library.",
-  "private": true,
-  "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "build-all": "pnpm -r run build",
-    "dev": "pnpm -r --parallel run dev"
-  },
   "author": "Rico Maier <rico.maier@etecture.de>",
   "license": "MIT",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc && rexb build src/index.ts",
+    "dev": "rexb build src/index.ts --watch"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0"
+  },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.0-alpha.2",
     "@storybook/addon-interactions": "^7.6.0-alpha.2",
@@ -35,6 +49,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "7.6.0-alpha.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "@etecture/rex-builder": "^0.1.0"
   }
 }

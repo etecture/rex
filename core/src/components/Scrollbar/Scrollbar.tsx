@@ -1,7 +1,7 @@
 import React, { CSSProperties, MutableRefObject, ReactNode, useRef, useState } from "react";
 import clsx from "clsx";
-import { useResizeObserver } from "@rex/use-resize-observer";
 
+import { useResizeObserver } from "../../hooks";
 import { useDragHandler } from "./hooks/useDragHandler";
 import { useScrollHandler } from "./hooks/useScrollHandler";
 

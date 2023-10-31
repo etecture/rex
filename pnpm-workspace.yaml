@@ -1,5 +1,4 @@
 packages:
-  - "components/**"
-  - "hooks/**"
+  - "core/**"
   - "tools/**"
   - "storybook/**"
