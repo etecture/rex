@@ -14,6 +14,10 @@
       }
     }
   },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
     "build": "tsc && rexb build src/index.ts",
     "dev": "rexb build src/index.ts --watch"
