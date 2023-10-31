@@ -4,6 +4,7 @@
   "description": "Exotic components, hooks and functions that you wouldn't find in the usual react component library.",
   "author": "Rico Maier <rico.maier@etecture.de>",
   "license": "MIT",
+  "type": "module",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
