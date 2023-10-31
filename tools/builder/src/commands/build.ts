@@ -2,6 +2,7 @@ import path from "path";
 import { watch } from "fs/promises";
 import { program } from "commander";
 import { readFileSync } from "fs";
+import { BuildConfig } from "bun";
 
 program
   .command("build")
@@ -24,17 +25,23 @@ program
     const runBuild = async () => {
       const beforeBuildTime = Date.now();
 
-      const result = await Bun.build({
+      const buildConfig: BuildConfig = {
         entrypoints: [entrypoint],
-        outdir: outPath,
         target: "browser",
-        format: "esm",
         external: [...peerDependencyPackages],
+        minify: true,
+      };
+
+      // esm build
+      await Bun.build({
+        ...buildConfig,
+        format: "esm",
+        outdir: outPath,
       });
 
       console.log(`Built in ${Date.now() - beforeBuildTime}ms`);
 
-      return result;
+      return;
     };
 
     await runBuild();
