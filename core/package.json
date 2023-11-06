@@ -20,7 +20,8 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsc && rexb build src/index.ts",
+    "build": "bun cleanup && tsc && rexb build src/index.ts",
+    "cleanup": "rm -rf ./dist",
     "dev": "rexb build src/index.ts --watch"
   },
   "peerDependencies": {
