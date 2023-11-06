@@ -1,4 +1,4 @@
-import React, { CSSProperties, MutableRefObject, ReactNode, useRef, useState } from "react";
+import React, { CSSProperties, MutableRefObject, ReactNode, useRef } from "react";
 import clsx from "clsx";
 
 import { useResizeObserver } from "../../hooks";
@@ -29,6 +29,15 @@ export interface ScrollbarProps extends React.DetailedHTMLProps<React.HTMLAttrib
   mih?: CSSProperties["minHeight"];
 
   /**
+   * Controls when the scrollbar tracks are shown.
+   * "always" will always show the scrollbar as long as the content is scrollable.
+   * "hover" will only show the tracks when hovering over the container.
+   * "never" will never show tracks
+   * @default "hover"
+   */
+  visibility?: "always" | "hover" | "never";
+
+  /**
    * An optional reference to the scroll container.
    * This is the element on which the scroll events happen.
    */
@@ -50,7 +59,17 @@ export interface ScrollbarProps extends React.DetailedHTMLProps<React.HTMLAttrib
 }
 
 export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
-  const { children, classNames, h: height, w: width, mah: maxHeight, mih: minHeight, viewportRef, ...divProps } = props;
+  const {
+    children,
+    classNames,
+    h: height,
+    w: width,
+    mah: maxHeight,
+    mih: minHeight,
+    viewportRef,
+    visibility = "hover",
+    ...divProps
+  } = props;
 
   const contentRef = useRef<HTMLDivElement | null>(null);
   const { width: contentWidth, height: contentHeight } = useResizeObserver({ ref: contentRef });
@@ -63,20 +82,6 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     }
   };
 
-  const [isVisible, setIsVisible] = useState(false);
-
-  const fadeOutRef = useRef<ReturnType<typeof setTimeout>>();
-  const handleFadeIn = () => {
-    if (!isVisible) {
-      setIsVisible(true);
-    }
-
-    clearTimeout(fadeOutRef.current);
-    fadeOutRef.current = setTimeout(() => {
-      setIsVisible(false);
-    }, 1600);
-  };
-
   const verticalScrollbarRef = useRef<HTMLDivElement | null>(null);
   const horizontalScrollbarRef = useRef<HTMLDivElement | null>(null);
 
@@ -86,11 +91,14 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     contentRef,
     contentHeight,
     contentWidth,
-    onScroll: handleFadeIn,
   });
 
-  useDragHandler({ contentRef, scrollbarRef: verticalScrollbarRef, mode: "vertical" });
-  useDragHandler({ contentRef, scrollbarRef: horizontalScrollbarRef, mode: "horizontal" });
+  const { horizontalDragging, verticalDragging } = useDragHandler({
+    contentRef,
+    verticalScrollbarRef,
+    horizontalScrollbarRef,
+  });
+  const isDragging = horizontalDragging || verticalDragging;
 
   let hasHorizontalScroll = false;
   let horizontalThumbWidth = "0px";
@@ -122,13 +130,20 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     }
   }
 
+  const isTrackVisible = visibility === "always" || isDragging;
+  const isTrackHidden = visibility === "never";
+
   const containerClassNames = clsx(
     styles.scrollContainer,
     classNames?.root,
-    isVisible && styles.visible,
+    isTrackVisible && styles.visible,
+    isTrackHidden && styles.trackHidden,
     hasHorizontalScroll && styles.hasHorizontalScroll,
     hasVerticalScroll && styles.hasVerticalScroll,
   );
+
+  const verticalAttributes = verticalDragging ? { ["data-dragging"]: true } : {};
+  const horizontalAttributes = horizontalDragging ? { ["data-dragging"]: true } : {};
 
   return (
     <div className={containerClassNames} {...divProps}>
@@ -146,6 +161,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
         <div
           className={clsx(styles.scrollbarThumb, classNames?.verticalThumb)}
           style={{ height: verticalThumbHeight }}
+          {...verticalAttributes}
         />
       </div>
 
@@ -153,6 +169,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
         <div
           className={clsx(styles.scrollbarThumb, classNames?.horizontalThumb)}
           style={{ width: horizontalThumbWidth }}
+          {...horizontalAttributes}
         />
       </div>
     </div>

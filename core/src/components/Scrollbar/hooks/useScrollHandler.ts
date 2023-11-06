@@ -6,7 +6,7 @@ export type UseScrollbarHandlerProps = {
   contentRef: RefObject<HTMLDivElement>;
   contentHeight: number;
   contentWidth: number;
-  onScroll: () => void;
+  onScroll?: () => void;
 };
 
 export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
@@ -14,7 +14,7 @@ export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      onScroll();
+      onScroll?.();
 
       if (contentRef.current && verticalScrollbarRef.current && horizontalScrollbarRef.current) {
         // VERTICAL
@@ -27,7 +27,7 @@ export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
         const scrollTop = contentRef.current.scrollTop;
         const verticalScrollRatio = scrollTop / movableVerticalArea;
 
-        const verticalScrollbarSpace = verticalScrollbarRect.height - verticalThumbRect.height - 4;
+        const verticalScrollbarSpace = verticalScrollbarRect.height - verticalThumbRect.height;
         const verticalThumbOffset = verticalScrollbarSpace * verticalScrollRatio;
 
         verticalThumbElement.style.transform = `translateY(${verticalThumbOffset}px)`;
@@ -42,7 +42,7 @@ export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
         const scrollLeft = contentRef.current.scrollLeft;
         const horizontalScrollRatio = scrollLeft / movableHorizontalArea;
 
-        const horizontalScrollbarSpace = horizontalScrollbarRect.width - horizontalThumbRect.width - 4;
+        const horizontalScrollbarSpace = horizontalScrollbarRect.width - horizontalThumbRect.width;
         const scrollbarThumbOffset = horizontalScrollbarSpace * horizontalScrollRatio;
 
         horizontalThumbElement.style.transform = `translateX(${scrollbarThumbOffset}px)`;

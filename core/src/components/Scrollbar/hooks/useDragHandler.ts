@@ -1,84 +1,107 @@
 import { RefObject, useEffect, useRef, useState } from "react";
 
 export type UseDragHandlerProps = {
-  scrollbarRef: RefObject<HTMLDivElement | null>;
+  horizontalScrollbarRef: RefObject<HTMLDivElement | null>;
+  verticalScrollbarRef: RefObject<HTMLDivElement | null>;
   contentRef: RefObject<HTMLDivElement | null>;
-  mode: "vertical" | "horizontal";
 };
 
 export const useDragHandler = (props: UseDragHandlerProps) => {
-  const { scrollbarRef, contentRef, mode } = props;
+  const { horizontalScrollbarRef, verticalScrollbarRef, contentRef } = props;
 
-  const initialPositionRef = useRef(0);
+  const initialPositionYRef = useRef(0);
+  const initialPositionXRef = useRef(0);
+
   const scrollTopRef = useRef(0);
+  const scrollLeftRef = useRef(0);
 
-  const [dragging, setDragging] = useState(false);
+  const [horizontalDragging, setHorizontalDragging] = useState(false);
+  const [verticalDragging, setVerticalDragging] = useState(false);
 
   useEffect(() => {
-    const onMouseDown = (event: MouseEvent) => {
-      setDragging(true);
+    const onHorizontalMouseDown = (event: MouseEvent) => {
+      setHorizontalDragging(true);
 
-      if (mode === "vertical") {
-        initialPositionRef.current = event.clientY;
-        scrollTopRef.current = contentRef.current?.scrollTop ?? 0;
-      }
+      initialPositionXRef.current = event.clientX;
+      scrollLeftRef.current = contentRef.current?.scrollLeft ?? 0;
+    };
 
-      if (mode === "horizontal") {
-        initialPositionRef.current = event.clientX;
-        scrollTopRef.current = contentRef.current?.scrollLeft ?? 0;
-      }
+    const onVerticalMouseDown = (event: MouseEvent) => {
+      setVerticalDragging(true);
+
+      initialPositionYRef.current = event.clientY;
+      scrollTopRef.current = contentRef.current?.scrollTop ?? 0;
     };
 
     const onMouseMove = (event: MouseEvent) => {
-      if (dragging && contentRef.current && scrollbarRef.current) {
-        const scrollbarThumb = scrollbarRef.current.firstChild as HTMLDivElement;
+      if (!contentRef.current) return;
+
+      if (horizontalScrollbarRef.current && horizontalDragging) {
+        const scrollbarThumb = horizontalScrollbarRef.current.firstChild as HTMLDivElement;
+        const contentRect = contentRef.current.getBoundingClientRect();
+        const deltaX = event.clientX - initialPositionXRef.current;
+
+        const scrollbarTrackArea =
+          horizontalScrollbarRef.current.getBoundingClientRect().width - scrollbarThumb.getBoundingClientRect().width;
+        const deltaRatio = deltaX / scrollbarTrackArea;
+
+        const movableArea = contentRef.current.scrollWidth - contentRect.width;
+
+        contentRef.current.scrollLeft = scrollLeftRef.current + movableArea * deltaRatio;
+      }
+
+      if (verticalScrollbarRef.current && verticalDragging) {
+        const scrollbarThumb = verticalScrollbarRef.current.firstChild as HTMLDivElement;
         const contentRect = contentRef.current.getBoundingClientRect();
 
-        if (mode === "vertical") {
-          const deltaY = event.clientY - initialPositionRef.current;
+        const deltaY = event.clientY - initialPositionYRef.current;
 
-          const scrollbarTrackArea =
-            scrollbarRef.current.getBoundingClientRect().height - scrollbarThumb.getBoundingClientRect().height;
-          const deltaRatio = deltaY / scrollbarTrackArea;
+        const scrollbarTrackArea =
+          verticalScrollbarRef.current.getBoundingClientRect().height - scrollbarThumb.getBoundingClientRect().height;
+        const deltaRatio = deltaY / scrollbarTrackArea;
 
-          const movableArea = contentRef.current.scrollHeight - contentRect.height;
+        const movableArea = contentRef.current.scrollHeight - contentRect.height;
 
-          contentRef.current.scrollTop = scrollTopRef.current + movableArea * deltaRatio;
-        }
-
-        if (mode === "horizontal") {
-          const deltaX = event.clientX - initialPositionRef.current;
-
-          const scrollbarTrackArea =
-            scrollbarRef.current.getBoundingClientRect().width - scrollbarThumb.getBoundingClientRect().width;
-          const deltaRatio = deltaX / scrollbarTrackArea;
-
-          const movableArea = contentRef.current.scrollWidth - contentRect.width;
-
-          contentRef.current.scrollLeft = scrollTopRef.current + movableArea * deltaRatio;
-        }
+        contentRef.current.scrollTop = scrollTopRef.current + movableArea * deltaRatio;
       }
     };
 
     const handleMouseUp = () => {
-      setDragging(false);
+      setHorizontalDragging(false);
+      setVerticalDragging(false);
     };
 
-    if (scrollbarRef.current) {
-      const scrollbarThumb = scrollbarRef.current.firstChild as HTMLDivElement;
-
-      scrollbarThumb.addEventListener("mousedown", onMouseDown);
-      document.addEventListener("mousemove", onMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
+    if (horizontalScrollbarRef.current) {
+      const scrollbarThumb = horizontalScrollbarRef.current.firstChild as HTMLDivElement;
+      scrollbarThumb.addEventListener("mousedown", onHorizontalMouseDown);
     }
 
+    if (verticalScrollbarRef.current) {
+      const scrollbarThumb = verticalScrollbarRef.current.firstChild as HTMLDivElement;
+      scrollbarThumb.addEventListener("mousedown", onVerticalMouseDown);
+    }
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+
     return () => {
-      if (scrollbarRef.current) {
-        const scrollbarThumb = scrollbarRef.current.firstChild as HTMLDivElement;
-        scrollbarThumb.removeEventListener("mousedown", onMouseDown);
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseup", handleMouseUp);
+      if (horizontalScrollbarRef.current) {
+        const scrollbarThumb = horizontalScrollbarRef.current.firstChild as HTMLDivElement;
+        scrollbarThumb.removeEventListener("mousedown", onHorizontalMouseDown);
       }
+
+      if (verticalScrollbarRef.current) {
+        const scrollbarThumb = verticalScrollbarRef.current.firstChild as HTMLDivElement;
+        scrollbarThumb.removeEventListener("mousedown", onVerticalMouseDown);
+      }
+
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [mode, dragging]);
+  }, [verticalDragging, horizontalDragging]);
+
+  return {
+    horizontalDragging,
+    verticalDragging,
+  };
 };

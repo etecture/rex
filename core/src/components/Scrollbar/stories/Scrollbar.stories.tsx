@@ -2,6 +2,8 @@ import { Meta, StoryObj } from "@storybook/react";
 
 import { Scrollbar } from "../Scrollbar";
 
+import styles from "./Scrollbar.stories.module.css";
+
 const loremIpsum = (
   <>
     <p>
@@ -35,8 +37,17 @@ export default {
     layout: "centered",
   },
   argTypes: {
+    visibility: {
+      control: "select",
+      options: ["always", "hover", "never"],
+    },
     viewportRef: { control: false },
     classNames: { control: false },
+  },
+  args: {
+    h: 200,
+    w: 400,
+    visibility: "hover",
   },
 } satisfies Meta<typeof Scrollbar>;
 
@@ -48,10 +59,6 @@ export const Vertical: Story = {
       <div>{loremIpsum}</div>
     </Scrollbar>
   ),
-  args: {
-    h: 200,
-    w: 400,
-  },
 };
 
 export const Horizontal: Story = {
@@ -60,8 +67,22 @@ export const Horizontal: Story = {
       <div style={{ width: 600 }}>{loremIpsum}</div>
     </Scrollbar>
   ),
+};
+
+export const Customized: Story = {
+  render: (args) => (
+    <Scrollbar {...args}>
+      <div style={{ width: 600 }}>{loremIpsum}</div>
+    </Scrollbar>
+  ),
   args: {
-    h: 200,
-    w: 400,
+    visibility: "always",
+    classNames: {
+      root: styles.root,
+      verticalTrack: styles.customTrack,
+      horizontalTrack: styles.customTrack,
+      horizontalThumb: styles.horizontalThumb,
+      verticalThumb: styles.verticalThumb,
+    },
   },
 };
