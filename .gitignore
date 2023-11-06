@@ -1,3 +1,4 @@
 node_modules
 dist
+tools/builder/bin
 storybook-static

@@ -2,7 +2,11 @@ import path from "path";
 import { watch } from "fs/promises";
 import { program } from "commander";
 import { readFileSync } from "fs";
-import { BuildConfig } from "bun";
+import { OutputOptions, rollup } from "rollup";
+import typescriptPlugin from "@rollup/plugin-typescript";
+import postcssPlugin, { PostCSSPluginConf } from "rollup-plugin-postcss";
+import postcssPresetEnv from "postcss-preset-env";
+import terserPlugin from "@rollup/plugin-terser";
 
 program
   .command("build")
@@ -14,30 +18,46 @@ program
     const entrypoint = path.resolve(process.cwd(), str);
     const entrypointDir = path.dirname(entrypoint);
     const parentDir = path.resolve(entrypointDir, "../");
-    const outPath = path.resolve(parentDir, options.out ?? "dist");
 
     const pkgJsonPath = path.resolve(parentDir, "package.json");
     const pkgJsonRaw = readFileSync(pkgJsonPath);
     const pkgJson = JSON.parse(pkgJsonRaw.toString());
 
-    const peerDependencyPackages = "peerDependencies" in pkgJson ? Object.keys(pkgJson.peerDependencies) : [];
+    const peerDependencies = "peerDependencies" in pkgJson ? Object.keys(pkgJson.peerDependencies) : [];
+    const directDependencies = "dependencies" in pkgJson ? Object.keys(pkgJson.dependencies) : [];
+
+    const postcssConfig: PostCSSPluginConf = {
+      modules: true,
+      minimize: true,
+      config: false,
+      plugins: [postcssPresetEnv()],
+    };
+
+    const cjsOutputOptions: OutputOptions = {
+      file: pkgJson.main,
+      format: "cjs",
+      sourcemap: true,
+    };
+
+    const esmOutputOptions: OutputOptions = {
+      file: pkgJson.module,
+      format: "esm",
+      sourcemap: true,
+    };
 
     const runBuild = async () => {
       const beforeBuildTime = Date.now();
 
-      const buildConfig: BuildConfig = {
-        entrypoints: [entrypoint],
-        target: "browser",
-        external: [...peerDependencyPackages],
-        minify: true,
-      };
-
-      // esm build
-      await Bun.build({
-        ...buildConfig,
-        format: "esm",
-        outdir: outPath,
+      const bundle = await rollup({
+        input: entrypoint,
+        plugins: [typescriptPlugin(), postcssPlugin(postcssConfig), terserPlugin()],
+        external: [...directDependencies, ...peerDependencies],
       });
+
+      await bundle.write(esmOutputOptions);
+      await bundle.write(cjsOutputOptions);
+
+      await bundle.close();
 
       console.log(`Built in ${Date.now() - beforeBuildTime}ms`);
 

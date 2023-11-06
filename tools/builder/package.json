@@ -5,18 +5,25 @@
   "description": "A build cli based on bun",
   "type": "module",
   "bin": {
-    "rexb": "bin/rexb"
+    "rexb": "bin/rexb.js"
   },
   "scripts": {
-    "build": "bun build --compile src/main.ts --target=bun --outfile=bin/rexb"
+    "build": "pnpm cleanup && rollup -c --silent && pnpm makeexecutable",
+    "makeexecutable": "chmod +x bin/rexb.js",
+    "cleanup": "rm -rf ./bin"
   },
   "author": "Rico Maier <rico.maier@etecture.de>",
   "license": "MIT",
   "dependencies": {
-    "commander": "^11.1.0"
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "commander": "^11.1.0",
+    "postcss-preset-env": "^9.3.0",
+    "rollup": "^4.3.0",
+    "rollup-plugin-postcss": "^4.0.2"
   },
   "devDependencies": {
-    "bun-types": "^1.0.7",
+    "@types/node": "^20.8.10",
     "typescript": "^5.2.2"
   }
 }
