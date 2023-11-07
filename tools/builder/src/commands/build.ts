@@ -30,7 +30,8 @@ program
       modules: true,
       minimize: true,
       config: false,
-      plugins: [postcssPresetEnv()],
+      plugins: [postcssPresetEnv({ features: { "cascade-layers": false } })],
+      extract: "styles.css",
     };
 
     const cjsOutputOptions: OutputOptions = {
@@ -51,7 +52,7 @@ program
       const bundle = await rollup({
         input: entrypoint,
         plugins: [typescriptPlugin(), postcssPlugin(postcssConfig), terserPlugin()],
-        external: [...directDependencies, ...peerDependencies],
+        external: [...directDependencies, ...peerDependencies, "react/jsx-runtime"],
       });
 
       await bundle.write(esmOutputOptions);
