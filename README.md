@@ -14,6 +14,12 @@ yarn add @etecture/rex
 npm i @etecture/rex
 ```
 
+Some components might need styles to function properly so you should import the styles.css once in your project via
+
+```ts
+import "@etecture/rex/styles.css";
+```
+
 ## Documentation
 
 TBD

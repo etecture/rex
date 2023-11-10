@@ -1,0 +1,27 @@
+name: Storybook Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths: [".storybook", "core/src/**"]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+      - name: Install and Build 🔧
+        run: |
+          pnpm i -r
+          pnpm run build-storybook
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: storybook-static
