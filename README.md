@@ -1,6 +1,6 @@
 # rex - react exotics
 
-Exotic components, hooks and functions that you wouldn't find in the usual react component library. \
+Exotic components, hooks and functions that you wouldn't find in other react component libraries. \
 The goal is to have a library with very specific features that other big component libraries might not cover.
 
 > ⚠ This library is in a very early development stage. Expect breaking changes with minor version changes! \
@@ -20,32 +20,26 @@ Some components might need styles to function properly so you should import the 
 import "@etecture/rex/styles.css";
 ```
 
-## Documentation
+## Links
 
-TBD
+- [Documentation](https://etecture.github.io/rex/)
 
 ## Development
 
-Install all dependencies
-
 ```sh
+# Install workspace dependencies
 pnpm i -r
-```
 
-Build all modules
-
-```sh
-pnpm build-all
-```
-
-Watch all modules
-
-```sh
-pnpm dev
-```
-
-Start storybook
-
-```sh
+# Start storybook
 pnpm storybook
 ```
+
+## Contributors
+
+<a href="https://github.com/etecture/rex/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=etecture/rex" />
+</a>
+
+## License
+
+[MIT](./LICENSE)
