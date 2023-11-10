@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-    paths: [".storybook", "core/src/**"]
+    paths: [".storybook", "core", ".github/workflows/storybook.yml"]
 
 jobs:
   build-and-deploy:
@@ -23,6 +23,7 @@ jobs:
         run: |
           pnpm i -r
           pnpm run build-storybook
+      - run: touch ./storybook-static/.nojekyll # prevents github from ignoring underscore files
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
