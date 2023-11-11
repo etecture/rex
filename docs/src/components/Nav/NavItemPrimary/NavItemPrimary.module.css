@@ -1,0 +1,17 @@
+.link {
+  transition: color 240ms;
+  color: var(--mantine-color-primary-1);
+
+  &:hover,
+  &.active {
+    color: white;
+
+    & .icon {
+      color: var(--mantine-color-primary-1);
+    }
+  }
+
+  & .icon {
+    transition: color 240ms;
+  }
+}

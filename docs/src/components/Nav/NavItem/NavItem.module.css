@@ -1,0 +1,15 @@
+.item {
+  text-decoration: none;
+  color: inherit;
+  margin-left: -1px;
+  padding-left: var(--mantine-spacing-md);
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-left: 1px solid transparent;
+
+  &.active {
+    background: var(--mantine-color-primary-6);
+    border-left: 1px solid var(--mantine-color-primary-2);
+    color: white;
+  }
+}

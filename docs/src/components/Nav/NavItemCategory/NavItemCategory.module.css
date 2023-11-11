@@ -1,0 +1,4 @@
+.category {
+  margin-left: 7px;
+  border-left: 1px solid var(--mantine-color-dark-4);
+}

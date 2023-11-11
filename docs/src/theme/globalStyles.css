@@ -1,0 +1,15 @@
+:root {
+  --header-height: 50px;
+
+  /* Scrollbar Customization */
+  --rex-scrollbar-thumb-color: var(--mantine-color-dark-3);
+  --rex-scrollbar-thumb-opacity: 1;
+}
+
+#root {
+  height: 100vh;
+}
+
+.mantine-ScrollArea-viewport > div {
+  height: 100%;
+}
