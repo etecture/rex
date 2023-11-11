@@ -71,6 +71,12 @@
       "rules": {
         "no-console": "off"
       }
+    },
+    {
+      "files": ["docs/**/*"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
     }
   ]
 }

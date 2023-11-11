@@ -7,12 +7,7 @@ const stories = storyDirectories
 
 const config: StorybookConfig = {
   stories,
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions",
-  ],
+  addons: ["@storybook/addon-controls", "@storybook/addon-links", "@storybook/addon-actions", "@storybook/addon-docs"],
   framework: {
     name: "@storybook/react-vite",
     options: {},

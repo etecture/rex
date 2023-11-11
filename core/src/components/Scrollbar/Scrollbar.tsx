@@ -146,10 +146,9 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   const horizontalAttributes = horizontalDragging ? { ["data-dragging"]: true } : {};
 
   return (
-    <div className={containerClassNames} {...divProps}>
+    <div className={containerClassNames} style={{ height, width, minHeight, maxHeight }} {...divProps}>
       <div
         className={clsx(styles.content, classNames?.viewport)}
-        style={{ height, width, minHeight, maxHeight }}
         data-horizontal-scroll={hasHorizontalScroll}
         data-vertical-scroll={hasVerticalScroll}
         ref={handleViewportMount}

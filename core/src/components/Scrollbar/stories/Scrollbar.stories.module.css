@@ -1,3 +1,11 @@
+.root {
+  --rex-scrollbar-thumb-color: rgba(255, 255, 255, 0.8);
+}
+
+.rootPadding {
+  padding: 0 20px 20px 0;
+}
+
 .customTrack {
   --rex-scrollbar-width: 12px;
 
@@ -22,8 +30,4 @@
   &[data-dragging] {
     background-color: black;
   }
-}
-
-.root {
-  padding: 0 20px 20px 0;
 }

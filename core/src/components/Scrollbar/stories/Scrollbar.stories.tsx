@@ -48,6 +48,9 @@ export default {
     h: 200,
     w: 400,
     visibility: "hover",
+    classNames: {
+      root: styles.root,
+    },
   },
 } satisfies Meta<typeof Scrollbar>;
 
@@ -78,11 +81,46 @@ export const Customized: Story = {
   args: {
     visibility: "always",
     classNames: {
-      root: styles.root,
+      root: styles.rootPadding,
       verticalTrack: styles.customTrack,
       horizontalTrack: styles.customTrack,
       horizontalThumb: styles.horizontalThumb,
       verticalThumb: styles.verticalThumb,
     },
+  },
+};
+
+export const FlexLayout: Story = {
+  render: (args) => (
+    <div style={{ height: 400, padding: 30 }}>
+      <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+        <div style={{ height: 60, flexShrink: 0, background: "rgba(255,255,255,0.1)" }} />
+
+        <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
+          <div style={{ width: 200, background: "gray", flexShrink: 0 }} />
+
+          <Scrollbar {...args}>
+            <div style={{ padding: 25, background: "rgba(255,255,255,0.05)" }}>
+              {loremIpsum}
+              {loremIpsum}
+              {loremIpsum}
+              {loremIpsum}
+              {loremIpsum}
+              {loremIpsum}
+            </div>
+          </Scrollbar>
+        </div>
+      </div>
+    </div>
+  ),
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    visibility: "always",
+    h: "auto",
+    w: "auto",
+    mah: "100%",
+    mih: 0,
   },
 };
