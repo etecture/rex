@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "@etecture/rex-docs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,11 +24,13 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.0.2",
     "@types/node": "^20",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
+    "eslint-config-prettier": "^9.0.0",
     "typescript": "^5"
   }
 }

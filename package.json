@@ -1,7 +1,7 @@
 {
   "name": "root",
   "version": "0.1.0",
-  "description": "Exotic components, hooks and functions that you wouldn't find in the usual react component library.",
+  "description": "Exotic components, hooks and functions you wouldn't find in most react component libraries.",
   "private": true,
   "scripts": {
     "storybook": "storybook dev -p 6006",
@@ -34,6 +34,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-testing-library": "^6.1.0",
+    "next": "14.0.2",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

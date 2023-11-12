@@ -1,8 +1,8 @@
 import { Blockquote } from "@mantine/core";
-import React from "react";
+import React, { ReactNode } from "react";
 
 export interface MdxBlockquoteProps {
-  children?: any;
+  children?: ReactNode;
 }
 
 const MdxBlockquote: React.FC<MdxBlockquoteProps> = ({ children }) => {

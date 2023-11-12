@@ -2,17 +2,16 @@
 
 import { Inter } from "next/font/google";
 import { Container, Group, MantineProvider, Stack } from "@mantine/core";
-// import { Scrollbar } from "@etecture/rex";
-import { Scrollbar } from "../../../core/src/components/Scrollbar/Scrollbar";
+import { Scrollbar } from "@etecture/rex";
 import { ReactNode } from "react";
 
 import { Header } from "@/components/Header/Header";
 import { Theme } from "@/theme/Theme";
 import { Nav } from "@/components/Nav/Nav";
 
-const inter = Inter({ subsets: ["latin"] });
-
 import styles from "./layout.module.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

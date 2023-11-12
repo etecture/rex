@@ -1,11 +1,11 @@
-name: Storybook Deploy
+name: Deploy Documentation
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-    paths: [".storybook", "core", ".github/workflows/storybook.yml"]
+    paths: ["docs", ".github/workflows/docs.yml"]
 
 jobs:
   build-and-deploy:
@@ -22,9 +22,10 @@ jobs:
       - name: Install and Build 🔧
         run: |
           pnpm i -r
-          pnpm run build-storybook
-      - run: touch ./storybook-static/.nojekyll # prevents github from ignoring underscore files
+          cd docs
+          npm build
+      - run: touch ./docs/out/.nojekyll # prevents github from ignoring underscore files
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: storybook-static
+          folder: docs/out

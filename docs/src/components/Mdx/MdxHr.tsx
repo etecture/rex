@@ -1,11 +1,11 @@
 import { Divider } from "@mantine/core";
-import React from "react";
+import React, { ReactNode } from "react";
 
 export interface MdxHrProps {
-  children?: any;
+  children?: ReactNode;
 }
 
-const MdxHr: React.FC<MdxHrProps> = (props) => {
+const MdxHr: React.FC<MdxHrProps> = () => {
   return <Divider my={"lg"} />;
 };
 

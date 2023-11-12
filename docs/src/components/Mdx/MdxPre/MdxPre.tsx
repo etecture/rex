@@ -6,6 +6,7 @@ import React from "react";
 import styles from "./MdxPre.module.css";
 
 export interface MdxPreProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children?: any;
 }
 

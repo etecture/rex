@@ -1,13 +1,12 @@
 "use client";
 
 import { UnstyledButton, Group, ThemeIcon, Text } from "@mantine/core";
-import React from "react";
-import { ReactNode } from "react";
-
-import styles from "./NavItemPrimary.module.css";
+import React, { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+
+import styles from "./NavItemPrimary.module.css";
 
 export interface NavItemPrimaryProps {
   label: string;

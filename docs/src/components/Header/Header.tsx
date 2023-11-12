@@ -1,9 +1,9 @@
-import { ActionIcon, Group, Text } from "@mantine/core";
+import { ActionIcon, Group, Text, UnstyledButton } from "@mantine/core";
 import React from "react";
 
-import styles from "./Header.module.css";
+import { IconGithub } from "../Icons/IconGithub";
 
-import { IconGithub } from "@/icons/IconGithub";
+import styles from "./Header.module.css";
 
 export interface HeaderProps {}
 
@@ -11,7 +11,9 @@ const Header: React.FC<HeaderProps> = () => {
   return (
     <Group h={50} px={"md"} justify="space-between" className={styles.header}>
       <Group>
-        <Text c="white">react-exotics</Text>
+        <UnstyledButton onClick={() => (window.location.href = "/")}>
+          <Text c="white">Rex</Text>
+        </UnstyledButton>
       </Group>
 
       <Group>

@@ -1,4 +1,4 @@
-import { Box, Center, Divider, Group, Text } from "@mantine/core";
+import { Center, Divider, Group, Text } from "@mantine/core";
 import React from "react";
 
 const notFound: React.FC = () => {

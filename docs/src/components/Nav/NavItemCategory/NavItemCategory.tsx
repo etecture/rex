@@ -4,11 +4,11 @@ import { Group, Stack, Text, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown, IconChevronRight } from "@tabler/icons-react";
 import React from "react";
-import { ReactNode } from "react";
+import { usePathname } from "next/navigation";
+
+import { NavItem } from "../NavItem/NavItem";
 
 import styles from "./NavItemCategory.module.css";
-import { usePathname } from "next/navigation";
-import { NavItem } from "../NavItem/NavItem";
 
 export type NavCategoryData = {
   label: string;
@@ -24,7 +24,7 @@ const NavItemCategory: React.FC<NavItemCategoryProps> = (props) => {
   const { label, items } = props;
   const pathname = usePathname();
 
-  const initiallyOpen = items.some((item) => item.route.startsWith(pathname));
+  const initiallyOpen = items.some((item) => item.route === pathname);
   const [isOpened, handler] = useDisclosure(initiallyOpen);
 
   return (

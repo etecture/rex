@@ -38,17 +38,17 @@
       "warn",
       {
         "newlines-between": "always",
-        "groups": [["builtin", "external"], ["internal", "parent", "sibling"], "index", "object"],
+        "groups": [["builtin", "external"], ["parent", "sibling"], "index", "object"],
         "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "parent",
+            "position": "after"
+          },
           {
             "pattern": "{.,..}/**/*.css",
             "group": "index",
             "position": "after"
-          },
-          {
-            "pattern": "~/**/*",
-            "group": "internal",
-            "position": "before"
           }
         ]
       }
@@ -74,6 +74,7 @@
     },
     {
       "files": ["docs/**/*"],
+      "extends": ["next"],
       "rules": {
         "import/no-default-export": "off"
       }
