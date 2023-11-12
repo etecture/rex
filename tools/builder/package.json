@@ -10,7 +10,7 @@
   "scripts": {
     "build": "pnpm cleanup && rollup -c --silent && pnpm makeexecutable",
     "makeexecutable": "chmod +x bin/rexb.js",
-    "cleanup": "rm -rf ./bin"
+    "cleanup": "rm -rf ./dist"
   },
   "author": "Rico Maier <rico.maier@etecture.de>",
   "license": "MIT",

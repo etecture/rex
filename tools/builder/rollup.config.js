@@ -6,7 +6,7 @@ export default {
   input: "src/main.ts",
   output: [
     {
-      file: "bin/rexb.js",
+      file: "dist/rexb.js",
       format: "esm",
     },
   ],
