@@ -1,5 +1,6 @@
-import { ActionIcon, Group, Text, UnstyledButton } from "@mantine/core";
+import { ActionIcon, Group, Text } from "@mantine/core";
 import React from "react";
+import Link from "next/link";
 
 import { IconGithub } from "../Icons/IconGithub";
 
@@ -11,18 +12,13 @@ const Header: React.FC<HeaderProps> = () => {
   return (
     <Group h={50} px={"md"} justify="space-between" className={styles.header}>
       <Group>
-        <UnstyledButton onClick={() => (window.location.href = "/")}>
+        <Link href={"/"}>
           <Text c="white">Rex</Text>
-        </UnstyledButton>
+        </Link>
       </Group>
 
       <Group>
-        <ActionIcon
-          color="dark.4"
-          size={"lg"}
-          p={4}
-          onClick={() => (window.location.href = "https://github.com/etecture/rex")}
-        >
+        <ActionIcon color="dark.4" size={"lg"} p={4} component={Link} href={"https://github.com/etecture/rex"}>
           <IconGithub fill="white" />
         </ActionIcon>
       </Group>

@@ -1,17 +1,21 @@
-"use client";
-
 import { Inter } from "next/font/google";
-import { Container, Group, MantineProvider, Stack } from "@mantine/core";
-import { Scrollbar } from "@etecture/rex";
+import { Group, MantineProvider, Stack } from "@mantine/core";
 import { ReactNode } from "react";
+import { Metadata } from "next";
 
 import { Header } from "@/components/Header/Header";
 import { Theme } from "@/theme/Theme";
 import { Nav } from "@/components/Nav/Nav";
+import { ContentLayout } from "@/components/ContentLayout/ContentLayout";
 
 import styles from "./layout.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Rex - Documentation",
+  description: "Exotic components, hooks and functions you wouldn't find in most react component libraries.",
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -23,11 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
             <Group align="stretch" gap={0} className={styles.body}>
               <Nav />
-              <Scrollbar mih={0} style={{ flex: 1 }}>
-                <Container className={styles.content} py={"xl"}>
-                  {children}
-                </Container>
-              </Scrollbar>
+              <ContentLayout>{children}</ContentLayout>
             </Group>
           </Stack>
         </MantineProvider>
