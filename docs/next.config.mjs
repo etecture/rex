@@ -5,6 +5,7 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 const nextConfig = {
   output: "export",
   pageExtensions: ["ts", "tsx", "mdx"],
+  basePath: "/rex",
 };
 
 const withMDX = createMDX({});
