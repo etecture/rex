@@ -6,7 +6,7 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build-all": "pnpm -r run build",
+    "build-all": "pnpm -r --filter './tools/**' --filter './core/**' run build ",
     "dev": "pnpm -r --parallel run dev"
   },
   "author": "Rico Maier <rico.maier@etecture.de>",
@@ -39,6 +39,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "7.5.3",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "@opentelemetry/api": "^1.7.0"
   }
 }

@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@opentelemetry/api':
+        specifier: ^1.7.0
+        version: 1.7.0
       '@storybook/addon-actions':
         specifier: 7.5.3
         version: 7.5.3(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
@@ -76,7 +79,7 @@ importers:
         version: 6.1.0(eslint@8.52.0)(typescript@5.2.2)
       next:
         specifier: 14.0.2
-        version: 14.0.2(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
+        version: 14.0.2(@babel/core@7.23.2)(@opentelemetry/api@1.7.0)(react-dom@18.2.0)(react@18.2.0)
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
@@ -182,7 +185,7 @@ importers:
         version: 2.0.0
       next:
         specifier: 14.0.2
-        version: 14.0.2(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
+        version: 14.0.2(@babel/core@7.23.2)(@opentelemetry/api@1.7.0)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18
         version: 18.2.0
@@ -2603,6 +2606,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
     dev: true
+
+  /@opentelemetry/api@1.7.0:
+    resolution: {integrity: sha512-AdY5wvN0P2vXBi3b29hxZgSFvdhdxPB9+f0B6s//P9Q8nibRWeA3cHm8UmLpio9ABigkVHJ5NMPk+Mz8VCCyrw==}
+    engines: {node: '>=8.0.0'}
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -8760,7 +8767,7 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  /next@14.0.2(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0):
+  /next@14.0.2(@babel/core@7.23.2)(@opentelemetry/api@1.7.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-jsAU2CkYS40GaQYOiLl9m93RTv2DA/tTJ0NRlmZIBIL87YwQ/xR8k796z7IqgM3jydI8G25dXvyYMC9VDIevIg==}
     engines: {node: '>=18.17.0'}
     hasBin: true
@@ -8776,6 +8783,7 @@ packages:
         optional: true
     dependencies:
       '@next/env': 14.0.2
+      '@opentelemetry/api': 1.7.0
       '@swc/helpers': 0.5.2
       busboy: 1.6.0
       caniuse-lite: 1.0.30001554
