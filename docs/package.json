@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@etecture/rex": "^0.1.2",
+    "@etecture/rex": "^0.1.4",
     "@mantine/code-highlight": "^7.2.1",
     "@mantine/core": "^7.2.1",
     "@mantine/hooks": "^7.2.1",
