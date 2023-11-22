@@ -1,33 +1,25 @@
 .root {
   --rex-scrollbar-thumb-color: rgba(255, 255, 255, 0.8);
+  --rex-scrollbar-active-thumb-color: #ffffff;
 }
 
-.rootPadding {
+.rootCustomized {
+  --rex-scrollbar-width: 12px;
+  --rex-scrollbar-thumb-opacity: 1;
+
   padding: 0 20px 20px 0;
 }
 
 .customTrack {
-  --rex-scrollbar-width: 12px;
-
   border-radius: 8px;
   background: lightgoldenrodyellow;
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
 .horizontalThumb {
-  opacity: 1;
   background: linear-gradient(90deg, rgba(153, 51, 231, 1) 0%, rgba(252, 70, 107, 1) 100%);
-
-  &[data-dragging] {
-    background-color: black;
-  }
 }
 
 .verticalThumb {
-  opacity: 1;
   background: linear-gradient(180deg, rgba(153, 51, 231, 1) 0%, rgba(252, 70, 107, 1) 100%);
-
-  &[data-dragging] {
-    background-color: black;
-  }
 }

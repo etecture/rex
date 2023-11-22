@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
 
 import { Scrollbar } from "../Scrollbar";
 
@@ -81,7 +82,7 @@ export const Customized: Story = {
   args: {
     visibility: "always",
     classNames: {
-      root: styles.rootPadding,
+      root: styles.rootCustomized,
       verticalTrack: styles.customTrack,
       horizontalTrack: styles.customTrack,
       horizontalThumb: styles.horizontalThumb,
@@ -122,5 +123,50 @@ export const FlexLayout: Story = {
     w: "auto",
     mah: "100%",
     mih: 0,
+  },
+};
+
+export const Tabs: Story = {
+  render: (args) => {
+    const [activeTab, setActiveTab] = useState(1);
+
+    return (
+      <div>
+        <div>
+          <button onClick={() => setActiveTab(1)}>Tab 1</button>
+          <button onClick={() => setActiveTab(2)}>Tab 2</button>
+          <button onClick={() => setActiveTab(3)}>Tab 3</button>
+        </div>
+
+        <div>
+          <Scrollbar {...args}>
+            {activeTab === 1 && (
+              <div style={{ padding: 25, background: "rgba(255,255,255,0.05)" }}>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
+                  massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                </p>
+              </div>
+            )}
+
+            {activeTab === 2 && <div style={{ padding: 25, background: "rgba(255,255,255,0.05)" }}>{loremIpsum}</div>}
+
+            {activeTab === 3 && (
+              <div style={{ padding: 25, background: "rgba(255,255,255,0.05)" }}>
+                {loremIpsum}
+                {loremIpsum}
+                {loremIpsum}
+                {loremIpsum}
+                {loremIpsum}
+                {loremIpsum}
+              </div>
+            )}
+          </Scrollbar>
+        </div>
+      </div>
+    );
+  },
+  args: {
+    visibility: "always",
   },
 };

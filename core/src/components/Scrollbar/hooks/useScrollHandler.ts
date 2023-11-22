@@ -4,16 +4,17 @@ export type UseScrollbarHandlerProps = {
   verticalScrollbarRef: RefObject<HTMLDivElement | null>;
   horizontalScrollbarRef: RefObject<HTMLDivElement | null>;
   contentRef: RefObject<HTMLDivElement>;
-  contentHeight: number;
-  contentWidth: number;
   onScroll?: () => void;
 };
 
 export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
-  const { verticalScrollbarRef, horizontalScrollbarRef, contentHeight, contentWidth, contentRef, onScroll } = props;
+  const { verticalScrollbarRef, horizontalScrollbarRef, contentRef, onScroll } = props;
 
   useEffect(() => {
     const handleScroll = () => {
+      const contentWidth = contentRef.current?.clientWidth ?? 0;
+      const contentHeight = contentRef.current?.clientHeight ?? 0;
+
       onScroll?.();
 
       if (contentRef.current && verticalScrollbarRef.current && horizontalScrollbarRef.current) {
@@ -54,5 +55,5 @@ export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
     return () => {
       contentRef.current?.removeEventListener("scroll", handleScroll);
     };
-  }, [contentHeight, contentWidth]);
+  }, []);
 };

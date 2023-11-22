@@ -1,9 +1,9 @@
 import React, { CSSProperties, MutableRefObject, ReactNode, useRef } from "react";
 import clsx from "clsx";
 
-import { useResizeObserver } from "../../hooks";
 import { useDragHandler } from "./hooks/useDragHandler";
 import { useScrollHandler } from "./hooks/useScrollHandler";
+import { useContentUpdate } from "./hooks/useContentUpdate";
 
 import styles from "./Scrollbar.module.css";
 
@@ -72,7 +72,6 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   } = props;
 
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const { width: contentWidth, height: contentHeight } = useResizeObserver({ ref: contentRef });
 
   const handleViewportMount = (node: HTMLDivElement) => {
     (contentRef as MutableRefObject<HTMLDivElement>).current = node;
@@ -89,8 +88,6 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     horizontalScrollbarRef,
     verticalScrollbarRef,
     contentRef,
-    contentHeight,
-    contentWidth,
   });
 
   const { horizontalDragging, verticalDragging } = useDragHandler({
@@ -100,35 +97,10 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   });
   const isDragging = horizontalDragging || verticalDragging;
 
-  let hasHorizontalScroll = false;
-  let horizontalThumbWidth = "0px";
-
-  let hasVerticalScroll = false;
-  let verticalThumbHeight = "0px";
-
-  if (contentRef.current) {
-    // VERTICAL
-    const verticalRatio = contentHeight / contentRef.current.scrollHeight;
-    const thumbHeightPercent = Math.ceil(Math.min(verticalRatio * 100, 100));
-
-    if (thumbHeightPercent < 100) {
-      verticalThumbHeight = `${thumbHeightPercent}%`;
-      hasVerticalScroll = true;
-    } else {
-      hasVerticalScroll = false;
-    }
-
-    // HORIZONTAL
-    const horizontalRatio = contentWidth / contentRef.current.scrollWidth;
-    const thumbWidthPercent = Math.ceil(Math.min(horizontalRatio * 100, 100));
-
-    if (thumbWidthPercent < 100) {
-      horizontalThumbWidth = `${thumbWidthPercent}%`;
-      hasHorizontalScroll = true;
-    } else {
-      hasHorizontalScroll = false;
-    }
-  }
+  const { hasHorizontalScroll, hasVerticalScroll, horizontalThumbWidth, verticalThumbHeight } = useContentUpdate({
+    contentRef,
+    visibility,
+  });
 
   const isTrackVisible = visibility === "always" || isDragging;
   const isTrackHidden = visibility === "never";
@@ -148,7 +120,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   return (
     <div className={containerClassNames} {...divProps}>
       <div
-        className={clsx(styles.content, classNames?.viewport)}
+        className={clsx(styles.viewport, classNames?.viewport)}
         data-horizontal-scroll={hasHorizontalScroll}
         data-vertical-scroll={hasVerticalScroll}
         style={{ height, width, minHeight, maxHeight }}
