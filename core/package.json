@@ -1,6 +1,6 @@
 {
   "name": "@etecture/rex",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Exotic components, hooks and functions that you wouldn't find in the usual react component library.",
   "author": "Rico Maier <rico.maier@etecture.de>",
   "license": "MIT",
