@@ -18,21 +18,21 @@
     }
 
     &.horizontalScrollDisabled {
-      & .viewport {
+      & > .viewport {
         overflow-x: hidden;
       }
 
-      & .horizontalTrack {
+      & > .horizontalTrack {
         display: none;
       }
     }
 
     &.verticalScrollDisabled {
-      & .viewport {
+      & > .viewport {
         overflow-y: hidden;
       }
 
-      & .verticalTrack {
+      & > .verticalTrack {
         display: none;
       }
     }
