@@ -17,6 +17,26 @@
       }
     }
 
+    &.horizontalScrollDisabled {
+      & .viewport {
+        overflow-x: hidden;
+      }
+
+      & .horizontalTrack {
+        display: none;
+      }
+    }
+
+    &.verticalScrollDisabled {
+      & .viewport {
+        overflow-y: hidden;
+      }
+
+      & .verticalTrack {
+        display: none;
+      }
+    }
+
     & .verticalTrack {
       top: var(--rex-scrollbar-offset, 2px);
       bottom: var(--rex-scrollbar-offset, 2px);

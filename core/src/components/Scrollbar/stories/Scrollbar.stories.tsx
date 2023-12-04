@@ -38,6 +38,8 @@ export default {
     layout: "centered",
   },
   argTypes: {
+    horizontalScrollDisabled: { control: "boolean" },
+    verticalScrollDisabled: { control: "boolean" },
     visibility: {
       control: "select",
       options: ["always", "hover", "never"],

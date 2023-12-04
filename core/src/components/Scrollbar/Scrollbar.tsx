@@ -38,6 +38,18 @@ export interface ScrollbarProps extends React.DetailedHTMLProps<React.HTMLAttrib
   visibility?: "always" | "hover" | "never";
 
   /**
+   * Disables horizontal scrolling
+   * @default false
+   */
+  horizontalScrollDisabled?: boolean;
+
+  /**
+   * Disables vertical scrolling
+   * @default false
+   */
+  verticalScrollDisabled?: boolean;
+
+  /**
    * An optional reference to the scroll container.
    * This is the element on which the scroll events happen.
    */
@@ -68,6 +80,8 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     mih: minHeight,
     viewportRef,
     visibility = "hover",
+    verticalScrollDisabled = false,
+    horizontalScrollDisabled = false,
     ...divProps
   } = props;
 
@@ -112,6 +126,8 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     isTrackHidden && styles.trackHidden,
     hasHorizontalScroll && styles.hasHorizontalScroll,
     hasVerticalScroll && styles.hasVerticalScroll,
+    verticalScrollDisabled && styles.verticalScrollDisabled,
+    horizontalScrollDisabled && styles.horizontalScrollDisabled,
   );
 
   const verticalAttributes = verticalDragging ? { ["data-dragging"]: true } : {};
