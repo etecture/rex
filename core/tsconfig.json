@@ -2,6 +2,9 @@
   "extends": "../tsconfig.json",
   "include": ["src", "../types.d.ts"],
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {
+      "test-utils": ["../tests/test-utils"]
+    }
   }
 }

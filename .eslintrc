@@ -33,7 +33,6 @@
     // Typescript already checks imports for us
     "import/no-unresolved": "off",
     "import/newline-after-import": ["warn", { "count": 1 }],
-    "import/no-default-export": "warn",
     "import/order": [
       "warn",
       {

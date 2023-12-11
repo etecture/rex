@@ -51,7 +51,11 @@ program
 
       const bundle = await rollup({
         input: entrypoint,
-        plugins: [typescriptPlugin(), postcssPlugin(postcssConfig), terserPlugin()],
+        plugins: [
+          typescriptPlugin({ exclude: ["**/*.test.tsx", "**/*.stories.tsx"] }),
+          postcssPlugin(postcssConfig),
+          terserPlugin(),
+        ],
         external: [...directDependencies, ...peerDependencies, "react/jsx-runtime"],
       });
 

@@ -1,8 +1,9 @@
 {
-  "include": ["core", "docs", ".storybook", "types.d.ts"],
+  "include": ["core", "docs", ".storybook", "types.d.ts", "playwright"],
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "types": ["@testing-library/jest-dom"],
     "module": "ESNext",
     "skipLibCheck": true,
 
