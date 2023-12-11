@@ -48,7 +48,7 @@ export default {
     classNames: { control: false },
   },
   args: {
-    h: 200,
+    h: 300,
     w: 400,
     visibility: "hover",
     classNames: {
@@ -170,5 +170,23 @@ export const Tabs: Story = {
   },
   args: {
     visibility: "always",
+  },
+};
+
+export const Confined: Story = {
+  render: (args) => (
+    <Scrollbar {...args}>
+      <div style={{ width: 1000, height: 1000 }} />
+    </Scrollbar>
+  ),
+  args: {
+    visibility: "always",
+    h: undefined,
+    w: undefined,
+    mah: 400,
+    maw: 400,
+  },
+  parameters: {
+    layout: "fullscreen",
   },
 };

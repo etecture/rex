@@ -29,6 +29,16 @@ export interface ScrollbarProps extends React.DetailedHTMLProps<React.HTMLAttrib
   mih?: CSSProperties["minHeight"];
 
   /**
+   * Max height of the container, if the content is less than that the scrollbar won't be used
+   */
+  maw?: CSSProperties["maxWidth"];
+
+  /**
+   * The min height of the container
+   */
+  miw?: CSSProperties["minWidth"];
+
+  /**
    * Controls when the scrollbar tracks are shown.
    * "always" will always show the scrollbar as long as the content is scrollable.
    * "hover" will only show the tracks when hovering over the container.
@@ -78,6 +88,8 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     w: width,
     mah: maxHeight,
     mih: minHeight,
+    miw: minWidth,
+    maw: maxWidth,
     viewportRef,
     visibility = "hover",
     verticalScrollDisabled = false,
@@ -134,12 +146,16 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   const horizontalAttributes = horizontalDragging ? { ["data-dragging"]: true } : {};
 
   return (
-    <div className={containerClassNames} {...divProps}>
+    <div
+      className={containerClassNames}
+      style={{ height, width, minHeight, maxHeight, minWidth, maxWidth }}
+      {...divProps}
+    >
       <div
         className={clsx(styles.viewport, classNames?.viewport)}
         data-horizontal-scroll={hasHorizontalScroll}
         data-vertical-scroll={hasVerticalScroll}
-        style={{ height, width, minHeight, maxHeight }}
+        style={{ height, width, minHeight, maxHeight, minWidth, maxWidth }}
         ref={handleViewportMount}
       >
         {children}

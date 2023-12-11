@@ -4,10 +4,11 @@
     z-index: 1;
     height: 100%;
     max-height: 100%;
+    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
 
     & .viewport {
-      height: 100%;
       box-sizing: border-box;
       overflow: auto;
       scrollbar-width: none;
