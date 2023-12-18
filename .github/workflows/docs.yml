@@ -19,13 +19,11 @@ jobs:
         with:
           node-version: 18
           cache: "pnpm"
+      - uses: oven-sh/setup-bun@v1
       - name: Install and Build 🔧
         run: |
           pnpm i -r
-          cd tools/builder && pnpm build
-          cd ../../core && pnpm build
-          cd ../docs && npm run build
-          cd ../
+          cd ../docs && bun run build
       - run: touch ./docs/out/.nojekyll # prevents github from ignoring underscore files
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
