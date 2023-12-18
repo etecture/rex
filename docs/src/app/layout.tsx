@@ -1,12 +1,11 @@
 import { Inter } from "next/font/google";
-import { Group, MantineProvider, Stack } from "@mantine/core";
+import { Box, Group, MantineProvider, Stack } from "@mantine/core";
 import { ReactNode } from "react";
 import { Metadata } from "next";
 
 import { Header } from "@/components/Header/Header";
 import { Theme } from "@/theme/Theme";
 import { Nav } from "@/components/Nav/Nav";
-import { ContentLayout } from "@/components/ContentLayout/ContentLayout";
 
 import styles from "./layout.module.css";
 
@@ -27,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
             <Group align="stretch" gap={0} className={styles.body}>
               <Nav />
-              <ContentLayout>{children}</ContentLayout>
+              <Box style={{ flex: 1, minWidth: 0, height: "100%" }}>{children}</Box>
             </Group>
           </Stack>
         </MantineProvider>

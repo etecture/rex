@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "bun docgen && next dev",
+    "build": "bun docgen && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docgen": "bun run ./docgen/generate.ts"
   },
   "dependencies": {
     "@etecture/rex": "^0.1.4",
@@ -21,6 +22,7 @@
     "clsx": "^2.0.0",
     "next": "14.0.2",
     "react": "^18",
+    "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18"
   },
   "devDependencies": {

@@ -4,8 +4,6 @@ import { Scrollbar } from "@etecture/rex";
 import { Container } from "@mantine/core";
 import React, { ReactNode } from "react";
 
-import styles from "./ContentLayout.module.css";
-
 export interface ContentLayoutProps {
   children: ReactNode;
 }
@@ -13,9 +11,7 @@ export interface ContentLayoutProps {
 const ContentLayout: React.FC<ContentLayoutProps> = ({ children }) => {
   return (
     <Scrollbar mih={0} style={{ flex: 1 }}>
-      <Container className={styles.content} py={"xl"}>
-        {children}
-      </Container>
+      <Container py={60}>{children}</Container>
     </Scrollbar>
   );
 };

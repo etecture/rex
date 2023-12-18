@@ -1,11 +1,13 @@
+import { ContentLayout } from "../layout/ContentLayout/ContentLayout"
+
 # Rex - react-exotics
 
 Exotic components, hooks and functions you wouldn't find in most react component libraries. \
 Meant to be used as an addition to other big component libraries.
 
-# Getting Started
+## Getting Started
 
-Install the library with the package manager of your choise.
+Install the library with the package manager of your choice.
 
 ```sh
 npm install @etecture/rex
@@ -18,3 +20,7 @@ If you intend to use components you need to add the library styles to your proje
 ```tsx
 import "@etecture/rex/styles.css";
 ```
+
+export default function MDXPage({ children }) {
+  return <ContentLayout>{children}</ContentLayout>;
+}

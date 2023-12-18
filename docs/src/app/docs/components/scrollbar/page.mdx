@@ -1,10 +1,4 @@
-# Scrollbar
-
-```tsx
-import { Scrollbar } from "@etecture/rex";
-```
-
-### Usage
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
 
 The Scrollbar is by default in an "auto" mode. It will try to take as much space as possible from its container.
 If its contents cannot fit the available space the scrollbars will be shown.
@@ -27,7 +21,7 @@ With this the container will not get taller than 600px and always keeps at least
 
 > If you use the Scrollbar in a flex layout set the `mih` prop to 0 so it will not be forced to take more space than the flex parent.
 
-### Styling
+## Styling
 
 To every part of the component a classname can be added.
 
@@ -43,3 +37,7 @@ classNames?: {
 ```
 
 Since the default styles of the Scrollbar are layered, you can easily override everything.
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"Scrollbar"}>{children}</ComponentLayout>;
+}

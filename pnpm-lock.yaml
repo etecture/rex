@@ -216,6 +216,9 @@ importers:
       react:
         specifier: ^18
         version: 18.2.0
+      react-docgen-typescript:
+        specifier: ^2.2.2
+        version: 2.2.2(typescript@5.2.2)
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
@@ -10970,7 +10973,6 @@ packages:
       typescript: '>= 4.3.x'
     dependencies:
       typescript: 5.2.2
-    dev: true
 
   /react-docgen@6.0.4:
     resolution: {integrity: sha512-gF+p+1ZwC2eO66bt763Tepmh5q9kDiFIrqW3YjUV/a+L96h0m5+/wSFQoOHL2cffyrPMZMxP03IgbggJ11QbOw==}

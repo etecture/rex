@@ -5,6 +5,9 @@
   --rex-scrollbar-thumb-color: var(--mantine-color-dark-3);
   --rex-scrollbar-active-thumb-color: var(--mantine-color-dark-2);
   --rex-scrollbar-thumb-opacity: 1;
+
+  /* Tabs */
+  --_tab-border-width: 0 0 1px 0;
 }
 
 #root {

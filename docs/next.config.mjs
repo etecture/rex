@@ -5,7 +5,7 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 const nextConfig = {
   output: "export",
   pageExtensions: ["ts", "tsx", "mdx"],
-  basePath: "/rex",
+  basePath: process.env.BASE_PATH ?? "/rex",
 };
 
 const withMDX = createMDX({});

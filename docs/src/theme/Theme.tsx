@@ -1,6 +1,6 @@
 "use client";
 
-import { DefaultMantineColor, MantineColorsTuple, createTheme } from "@mantine/core";
+import { Container, DefaultMantineColor, MantineColorsTuple, createTheme } from "@mantine/core";
 
 import "@mantine/core/styles.layer.css";
 import "@mantine/code-highlight/styles.layer.css";
@@ -55,5 +55,13 @@ export const Theme = createTheme({
       "#0E0F13",
       "#090A0D",
     ],
+  },
+
+  components: {
+    Container: Container.extend({
+      defaultProps: {
+        size: "lg",
+      },
+    }),
   },
 });

@@ -7,6 +7,15 @@ import { useContentUpdate } from "./hooks/useContentUpdate";
 
 import styles from "./Scrollbar.module.css";
 
+export type ScrollbarClassnames = {
+  root?: string;
+  viewport?: string;
+  verticalTrack?: string;
+  verticalThumb?: string;
+  horizontalTrack?: string;
+  horizontalThumb?: string;
+};
+
 export interface ScrollbarProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   /**
    * Fixed height of the scrollbar container
@@ -68,18 +77,14 @@ export interface ScrollbarProps extends React.DetailedHTMLProps<React.HTMLAttrib
   /**
    * Classnames for each part of the component
    */
-  classNames?: {
-    root?: string;
-    viewport?: string;
-    verticalTrack?: string;
-    verticalThumb?: string;
-    horizontalTrack?: string;
-    horizontalThumb?: string;
-  };
+  classNames?: ScrollbarClassnames;
 
   children: ReactNode;
 }
 
+/**
+ * Customizable scrollbar component with high layout compatibility
+ */
 export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   const {
     children,
