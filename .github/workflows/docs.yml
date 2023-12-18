@@ -23,7 +23,10 @@ jobs:
       - name: Install and Build 🔧
         run: |
           pnpm i -r
-          cd docs && bun run build
+          cd tools/builder && bun run build
+          cd ../../core && bun run build
+          cd ../docs && bun run build
+          cd ../
       - run: touch ./docs/out/.nojekyll # prevents github from ignoring underscore files
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
