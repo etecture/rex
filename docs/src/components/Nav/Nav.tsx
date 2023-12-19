@@ -15,10 +15,7 @@ const Nav: React.FC<NavProps> = () => {
 
       <Stack mt={"lg"}>
         <NavItemCategory label="components" items={[{ label: "Scrollbar", route: "/docs/components/scrollbar" }]} />
-        <NavItemCategory
-          label="hooks"
-          items={[{ label: "useResizeObserver", route: "/docs/hooks/use-resize-observer" }]}
-        />
+        {/* <NavItemCategory label="hooks" items={[]} /> */}
       </Stack>
     </Stack>
   );
