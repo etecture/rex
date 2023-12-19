@@ -21,6 +21,7 @@ const ComponentLayout: React.FC<ComponentLayoutProps> = (props) => {
   const importCode = `import { ${componentName} } from "@etecture/rex";`;
 
   const targetDocgen = docs.find((entry) => entry.component === componentName);
+  const withProps = targetDocgen && targetDocgen.props.length > 0;
 
   const [activeTab, setActiveTab] = useState<string | null>("usage");
 
@@ -38,9 +39,12 @@ const ComponentLayout: React.FC<ComponentLayoutProps> = (props) => {
             <TabsTab value="usage" fz="xl" fw="bold" px="xl">
               Usage
             </TabsTab>
-            <TabsTab value="props" fz="xl" fw="bold" px="xl">
-              Props
-            </TabsTab>
+
+            {withProps && (
+              <TabsTab value="props" fz="xl" fw="bold" px="xl">
+                Props
+              </TabsTab>
+            )}
           </TabsList>
 
           <TabsPanel value="usage">{children}</TabsPanel>

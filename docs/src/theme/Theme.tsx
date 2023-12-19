@@ -10,7 +10,7 @@ import "@etecture/rex/styles.css";
 import "./globalStyles.css";
 import "./Fonts.css";
 
-type ExtendedCustomColors = "primary" | "stone" | DefaultMantineColor;
+type ExtendedCustomColors = "primary" | DefaultMantineColor;
 
 declare module "@mantine/core" {
   export interface MantineThemeOther {

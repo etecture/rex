@@ -17,3 +17,15 @@
 .mantine-ScrollArea-viewport > div {
   height: 100%;
 }
+
+code {
+  background-color: var(--mantine-color-dark-8);
+  padding: 1px 10px 3px;
+  color: var(--mantine-color-blue-2);
+  border-radius: 3px;
+}
+pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}

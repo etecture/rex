@@ -1,0 +1,29 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+
+```tsx
+const { breakpoint, value } = useBreakpoint({ xs: "extra smol", sm: "smol" md: "normy", lg: "chonky", xl: "giant" });
+```
+
+The `useBreakpoint` hook will take a map of breakpoints and corresponding values and returns a matching pair depending on the window width.
+The default breakpoints are:
+
+```tsx
+export const DEFAULT_BREAKPOINTS = {
+  xs: 576,
+  sm: 768,
+  md: 992,
+  lg: 1200,
+  xl: 1408,
+} as const;
+```
+
+They can be customized by providing a second parameter to the hook:
+
+```tsx
+const { breakpoint, value } = useBreakpoint({...}, { xs: 500, sm: 700, md: 900: lg: 1200, xl: 1600 });
+```
+
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"useBreakpoint"}>{children}</ComponentLayout>;
+}
