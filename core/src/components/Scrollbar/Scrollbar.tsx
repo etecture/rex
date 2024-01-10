@@ -1,9 +1,9 @@
-import React, { CSSProperties, MutableRefObject, ReactNode, useRef } from "react";
 import clsx from "clsx";
+import React, { CSSProperties, MutableRefObject, ReactNode, useRef } from "react";
 
+import { useContentUpdate } from "./hooks/useContentUpdate";
 import { useDragHandler } from "./hooks/useDragHandler";
 import { useScrollHandler } from "./hooks/useScrollHandler";
-import { useContentUpdate } from "./hooks/useContentUpdate";
 
 import styles from "./Scrollbar.module.css";
 
@@ -88,6 +88,7 @@ export interface ScrollbarProps extends React.DetailedHTMLProps<React.HTMLAttrib
 export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   const {
     children,
+    className,
     classNames,
     h: height,
     w: width,
@@ -138,6 +139,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
 
   const containerClassNames = clsx(
     styles.scrollContainer,
+    className,
     classNames?.root,
     isTrackVisible && styles.visible,
     isTrackHidden && styles.trackHidden,
@@ -147,8 +149,8 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     horizontalScrollDisabled && styles.horizontalScrollDisabled,
   );
 
-  const verticalAttributes = verticalDragging ? { ["data-dragging"]: true } : {};
-  const horizontalAttributes = horizontalDragging ? { ["data-dragging"]: true } : {};
+  const verticalAttributes = verticalDragging ? { "data-dragging": true } : {};
+  const horizontalAttributes = horizontalDragging ? { "data-dragging": true } : {};
 
   return (
     <div

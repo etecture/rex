@@ -16,7 +16,7 @@ test.describe("Scrollbar", () => {
           verticalTrack: "vertical-track",
         }}
       >
-        <div style={{ height: 1000 }}></div>
+        <div style={{ height: 1000 }} />
       </Scrollbar>,
     );
 
@@ -41,7 +41,7 @@ test.describe("Scrollbar", () => {
           verticalTrack: "vertical-track",
         }}
       >
-        <div style={{ width: 1000, height: 400 }}></div>
+        <div style={{ width: 1000, height: 400 }} />
       </Scrollbar>,
     );
 
@@ -67,7 +67,7 @@ test.describe("Scrollbar", () => {
           verticalTrack: "vertical-track",
         }}
       >
-        <div style={{ width: 1000, height: 1000 }}></div>
+        <div style={{ width: 1000, height: 1000 }} />
       </Scrollbar>,
     );
 
@@ -93,7 +93,7 @@ test.describe("Scrollbar", () => {
           verticalTrack: "vertical-track",
         }}
       >
-        <div style={{ width: 1000, height: 1000 }}></div>
+        <div style={{ width: 1000, height: 1000 }} />
       </Scrollbar>,
     );
 
@@ -115,7 +115,7 @@ test.describe("Scrollbar", () => {
           verticalTrack: "vertical-track",
         }}
       >
-        <div style={{ width: 1000, height: 1000 }}></div>
+        <div style={{ width: 1000, height: 1000 }} />
       </Scrollbar>,
     );
 
@@ -142,7 +142,7 @@ test.describe("Scrollbar", () => {
           verticalTrack: "vertical-track",
         }}
       >
-        <div style={{ width: 1000, height: 1000 }}></div>
+        <div style={{ width: 1000, height: 1000 }} />
       </Scrollbar>,
     );
 
@@ -171,5 +171,33 @@ test.describe("Scrollbar", () => {
       const viewportScrollLeft = await component.locator(".viewport").evaluate((e) => e.scrollLeft);
       expect(viewportScrollLeft).toBeGreaterThan(300);
     }).toPass({ timeout: 1000 });
+  });
+
+  test("using className prop does not break styles", async ({ mount, page }) => {
+    const component = await mount(
+      <Scrollbar
+        mah={400}
+        maw={400}
+        className="some-class"
+        classNames={{
+          viewport: "viewport",
+          horizontalTrack: "horizontal-track",
+          verticalTrack: "vertical-track",
+        }}
+      >
+        <div style={{ width: 1000, height: 1000 }} />
+      </Scrollbar>,
+    );
+
+    await expect(component).toBeVisible();
+    await component.locator(".viewport").hover();
+    await page.mouse.wheel(0, 100);
+    await expect(component.locator(".viewport")).toHaveScrollTop(100);
+    await page.mouse.wheel(0, 300);
+    await expect(component.locator(".viewport")).toHaveScrollTop(400);
+    await page.mouse.wheel(100, 0);
+    await expect(component.locator(".viewport")).toHaveScrollLeft(100);
+    await page.mouse.wheel(300, 0);
+    await expect(component.locator(".viewport")).toHaveScrollLeft(400);
   });
 });
