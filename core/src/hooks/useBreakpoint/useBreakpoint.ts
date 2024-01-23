@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 /**
  * Defines a value for each breakpoint
@@ -50,22 +50,28 @@ export type UseBreakpointResult<ValueType> = {
  */
 export const useBreakpoint = <Values extends BreakpointValues>(
   values?: Values,
-  breakpoints: Breakpoints = DEFAULT_BREAKPOINTS,
+  breakpoints: Partial<Breakpoints> = DEFAULT_BREAKPOINTS,
 ): UseBreakpointResult<Values["xs"]> => {
-  const [breakpoint, setBreakpoint] = useState<BreakpointKey>("xs");
+  const mergedBreakpoints = { ...DEFAULT_BREAKPOINTS, ...breakpoints };
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: breakpoints[size] gets falsely marked as a warning
+  const getBreakpoint = useCallback(() => {
+    let _breakpoint: BreakpointKey = "xs";
+
+    for (const size of Object.keys(mergedBreakpoints)) {
+      if (window.innerWidth >= Number(mergedBreakpoints[size as BreakpointKey])) {
+        _breakpoint = size as BreakpointKey;
+      }
+    }
+
+    return _breakpoint;
+  }, [mergedBreakpoints]);
+
+  const [breakpoint, setBreakpoint] = useState<BreakpointKey>(getBreakpoint());
+
   useEffect(() => {
     const updateBreakpoint = () => {
-      let _breakpoint: BreakpointKey = "xs";
-
-      for (const size of Object.keys(breakpoints)) {
-        if (document.body.clientWidth >= Number(breakpoints[size as BreakpointKey])) {
-          _breakpoint = size as BreakpointKey;
-        }
-      }
-
-      setBreakpoint(_breakpoint);
+      setBreakpoint(getBreakpoint());
     };
 
     updateBreakpoint();
@@ -74,7 +80,7 @@ export const useBreakpoint = <Values extends BreakpointValues>(
     return () => {
       window.removeEventListener("resize", updateBreakpoint);
     };
-  }, [breakpoints]);
+  }, [getBreakpoint]);
 
   let returnValue: unknown | undefined = undefined;
   if (typeof values !== "undefined") {

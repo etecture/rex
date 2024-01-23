@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { BreakpointValues, DEFAULT_BREAKPOINTS, useBreakpoint } from "./useBreakpoint";
 
 const resize = (width: number) => {
-  (document.body.clientWidth as number) = width;
+  window.innerWidth = width;
   fireEvent(window, new Event("resize"));
 };
 
@@ -15,10 +15,16 @@ const values = {
 } satisfies BreakpointValues;
 
 describe("useBreakpoint", () => {
-  it("should use smallest value as default", async () => {
+  it("should use single value as default", async () => {
     resize(1920);
     const { result } = renderHook(() => useBreakpoint({ xs: values.xs }));
     expect(result.current.value).toBe(values.xs);
+  });
+
+  it("should use smallest value as default", async () => {
+    resize(1920);
+    const { result } = renderHook(() => useBreakpoint({ md: values.md }));
+    expect(result.current.value).toBe(values.md);
   });
 
   it("should use a matching value", async () => {
@@ -49,7 +55,9 @@ describe("useBreakpoint", () => {
   });
 
   it("should use a matching value with custom breakpoints", async () => {
-    const { result } = renderHook(() => useBreakpoint(values, { xs: 10, md: 20, xl: 40 }));
+    const { result } = renderHook(() =>
+      useBreakpoint(values, { xs: 10, sm: 15, md: 20, lg: 30, xl: 40 }),
+    );
 
     resize(10);
     expect(result.current.value).toBe(values.xs);
