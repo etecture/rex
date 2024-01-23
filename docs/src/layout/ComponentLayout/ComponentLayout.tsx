@@ -1,9 +1,9 @@
 "use client";
 
+import { Scrollbar } from "@etecture/rex";
+import { CodeHighlight } from "@mantine/code-highlight";
 import { Container, Paper, Tabs, TabsList, TabsPanel, TabsTab, Text, Title } from "@mantine/core";
 import React, { ReactNode, useState } from "react";
-import { CodeHighlight } from "@mantine/code-highlight";
-import { Scrollbar } from "@etecture/rex";
 
 import { docs } from "../../../docgen/docgen";
 import { PropTable } from "../../components/PropTable/PropTable";
@@ -34,7 +34,11 @@ const ComponentLayout: React.FC<ComponentLayoutProps> = (props) => {
           <CodeHighlight code={importCode} lang="tsx" my={"md"} />
         </Paper>
 
-        <Tabs value={activeTab} onChange={setActiveTab} classNames={{ root: styles.tabsRoot, tab: styles.tabsTab }}>
+        <Tabs
+          value={activeTab}
+          onChange={setActiveTab}
+          classNames={{ root: styles.tabsRoot, tab: styles.tabsTab }}
+        >
           <TabsList my={"xl"}>
             <TabsTab value="usage" fz="xl" fw="bold" px="xl">
               Usage

@@ -1,14 +1,11 @@
 import { ActionIcon, Group, Text } from "@mantine/core";
-import React from "react";
 import Link from "next/link";
 
 import { IconGithub } from "../Icons/IconGithub";
 
 import styles from "./Header.module.css";
 
-export interface HeaderProps {}
-
-const Header: React.FC<HeaderProps> = () => {
+const Header = () => {
   return (
     <Group h={50} px={"md"} justify="space-between" className={styles.header}>
       <Group>
@@ -18,7 +15,13 @@ const Header: React.FC<HeaderProps> = () => {
       </Group>
 
       <Group>
-        <ActionIcon color="dark.4" size={"lg"} p={4} component={Link} href={"https://github.com/etecture/rex"}>
+        <ActionIcon
+          color="dark.4"
+          size={"lg"}
+          p={4}
+          component={Link}
+          href={"https://github.com/etecture/rex"}
+        >
           <IconGithub fill="white" />
         </ActionIcon>
       </Group>

@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest";
 import { fireEvent, renderHook } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 
 import { BreakpointValues, DEFAULT_BREAKPOINTS, useBreakpoint } from "./useBreakpoint";
 

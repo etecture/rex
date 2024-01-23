@@ -66,7 +66,7 @@ export const useContentUpdate = (props: UseContentUpdateProps) => {
     }
 
     setScrollData(updateData);
-  }, []);
+  }, [contentRef]);
 
   const mutationObserverRef = useRef<MutationObserver | null>(null);
 
@@ -91,7 +91,7 @@ export const useContentUpdate = (props: UseContentUpdateProps) => {
       contentRef.current?.removeEventListener("scroll", update);
       mutationObserverRef.current?.disconnect();
     };
-  }, [update, visibility]);
+  }, [update, visibility, contentRef]);
 
   return scrollData;
 };

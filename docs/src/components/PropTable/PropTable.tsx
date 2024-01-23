@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Code, Group, Stack, Table, TableTbody, TableTd, TableTr, Text } from "@mantine/core";
 import { InlineCodeHighlight } from "@mantine/code-highlight";
+import { Box, Code, Group, Stack, Table, TableTbody, TableTd, TableTr, Text } from "@mantine/core";
+import React from "react";
 
 import { docs } from "../../../docgen/docgen";
 

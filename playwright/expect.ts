@@ -3,7 +3,7 @@ import type { Locator } from "@playwright/test";
 
 export const expect = baseExpect.extend({
   async toHaveScrollTop(locator: Locator, expected: number, options?: { timeout?: number }) {
-    let pass: boolean = false;
+    let pass = false;
     let received: unknown;
 
     try {
@@ -14,7 +14,7 @@ export const expect = baseExpect.extend({
       }).toPass({ timeout: options?.timeout ?? 1000 });
 
       pass = true;
-    } catch (e) {
+    } catch (_) {
       pass = false;
     }
 
@@ -34,7 +34,7 @@ export const expect = baseExpect.extend({
   },
 
   async toHaveScrollLeft(locator: Locator, expected: number, options?: { timeout?: number }) {
-    let pass: boolean = false;
+    let pass = false;
     let received: unknown;
 
     try {
@@ -45,7 +45,7 @@ export const expect = baseExpect.extend({
       }).toPass({ timeout: options?.timeout ?? 1000 });
 
       pass = true;
-    } catch (e) {
+    } catch (_) {
       pass = false;
     }
 

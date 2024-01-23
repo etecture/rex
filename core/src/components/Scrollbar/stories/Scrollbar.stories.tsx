@@ -8,25 +8,26 @@ import styles from "./Scrollbar.stories.module.css";
 const loremIpsum = (
   <>
     <p>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-      sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+      Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+      mus.
     </p>
 
     <p>
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede
-      justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-      justo.
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+      quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
+      rhoncus ut, imperdiet a, venenatis vitae, justo.
     </p>
 
     <p>
-      Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
-      vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem
-      ante, dapibus in, viverra quis, feugiat a, tellus.
+      Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum
+      semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
+      vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
     </p>
 
     <p>
-      Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
-      Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
+      Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam
+      ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
     </p>
   </>
 );
@@ -135,9 +136,15 @@ export const Tabs: Story = {
     return (
       <div>
         <div>
-          <button onClick={() => setActiveTab(1)}>Tab 1</button>
-          <button onClick={() => setActiveTab(2)}>Tab 2</button>
-          <button onClick={() => setActiveTab(3)}>Tab 3</button>
+          <button type="button" onClick={() => setActiveTab(1)}>
+            Tab 1
+          </button>
+          <button type="button" onClick={() => setActiveTab(2)}>
+            Tab 2
+          </button>
+          <button type="button" onClick={() => setActiveTab(3)}>
+            Tab 3
+          </button>
         </div>
 
         <div>
@@ -145,13 +152,16 @@ export const Tabs: Story = {
             {activeTab === 1 && (
               <div style={{ padding: 25, background: "rgba(255,255,255,0.05)" }}>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                  massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
+                  eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
+                  montes, nascetur ridiculus mus.
                 </p>
               </div>
             )}
 
-            {activeTab === 2 && <div style={{ padding: 25, background: "rgba(255,255,255,0.05)" }}>{loremIpsum}</div>}
+            {activeTab === 2 && (
+              <div style={{ padding: 25, background: "rgba(255,255,255,0.05)" }}>{loremIpsum}</div>
+            )}
 
             {activeTab === 3 && (
               <div style={{ padding: 25, background: "rgba(255,255,255,0.05)" }}>

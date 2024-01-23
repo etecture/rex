@@ -54,15 +54,16 @@ export const useBreakpoint = <Values extends BreakpointValues>(
 ): UseBreakpointResult<Values["xs"]> => {
   const [breakpoint, setBreakpoint] = useState<BreakpointKey>("xs");
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: breakpoints[size] gets falsely marked as a warning
   useEffect(() => {
     const updateBreakpoint = () => {
       let _breakpoint: BreakpointKey = "xs";
 
-      Object.keys(breakpoints).forEach((size) => {
+      for (const size of Object.keys(breakpoints)) {
         if (document.body.clientWidth >= Number(breakpoints[size as BreakpointKey])) {
           _breakpoint = size as BreakpointKey;
         }
-      });
+      }
 
       setBreakpoint(_breakpoint);
     };

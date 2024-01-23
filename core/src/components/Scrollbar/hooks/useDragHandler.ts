@@ -42,7 +42,8 @@ export const useDragHandler = (props: UseDragHandlerProps) => {
         const deltaX = event.clientX - initialPositionXRef.current;
 
         const scrollbarTrackArea =
-          horizontalScrollbarRef.current.getBoundingClientRect().width - scrollbarThumb.getBoundingClientRect().width;
+          horizontalScrollbarRef.current.getBoundingClientRect().width -
+          scrollbarThumb.getBoundingClientRect().width;
         const deltaRatio = deltaX / scrollbarTrackArea;
 
         const movableArea = contentRef.current.scrollWidth - contentRect.width;
@@ -57,7 +58,8 @@ export const useDragHandler = (props: UseDragHandlerProps) => {
         const deltaY = event.clientY - initialPositionYRef.current;
 
         const scrollbarTrackArea =
-          verticalScrollbarRef.current.getBoundingClientRect().height - scrollbarThumb.getBoundingClientRect().height;
+          verticalScrollbarRef.current.getBoundingClientRect().height -
+          scrollbarThumb.getBoundingClientRect().height;
         const deltaRatio = deltaY / scrollbarTrackArea;
 
         const movableArea = contentRef.current.scrollHeight - contentRect.height;
@@ -98,7 +100,13 @@ export const useDragHandler = (props: UseDragHandlerProps) => {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [verticalDragging, horizontalDragging]);
+  }, [
+    verticalDragging,
+    horizontalDragging,
+    contentRef,
+    horizontalScrollbarRef,
+    verticalScrollbarRef,
+  ]);
 
   return {
     horizontalDragging,

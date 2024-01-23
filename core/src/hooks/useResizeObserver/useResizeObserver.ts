@@ -50,7 +50,7 @@ export const useResizeObserver = (params: UseResizeObserverParams): UseResizeObs
         resizeObserverRef.current?.unobserve(ref.current);
       }
     };
-  }, []);
+  }, [onChange, ref]);
 
   return contentRect;
 };

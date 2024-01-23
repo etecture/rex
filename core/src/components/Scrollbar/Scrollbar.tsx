@@ -16,7 +16,8 @@ export type ScrollbarClassnames = {
   horizontalThumb?: string;
 };
 
-export interface ScrollbarProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface ScrollbarProps
+  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   /**
    * Fixed height of the scrollbar container
    */
@@ -129,10 +130,11 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   });
   const isDragging = horizontalDragging || verticalDragging;
 
-  const { hasHorizontalScroll, hasVerticalScroll, horizontalThumbWidth, verticalThumbHeight } = useContentUpdate({
-    contentRef,
-    visibility,
-  });
+  const { hasHorizontalScroll, hasVerticalScroll, horizontalThumbWidth, verticalThumbHeight } =
+    useContentUpdate({
+      contentRef,
+      visibility,
+    });
 
   const isTrackVisible = visibility === "always" || isDragging;
   const isTrackHidden = visibility === "never";
@@ -168,7 +170,10 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
         {children}
       </div>
 
-      <div className={clsx(styles.verticalTrack, classNames?.verticalTrack)} ref={verticalScrollbarRef}>
+      <div
+        className={clsx(styles.verticalTrack, classNames?.verticalTrack)}
+        ref={verticalScrollbarRef}
+      >
         <div
           className={clsx(styles.scrollbarThumb, classNames?.verticalThumb)}
           style={{ height: verticalThumbHeight }}
@@ -176,7 +181,10 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
         />
       </div>
 
-      <div className={clsx(styles.horizontalTrack, classNames?.horizontalTrack)} ref={horizontalScrollbarRef}>
+      <div
+        className={clsx(styles.horizontalTrack, classNames?.horizontalTrack)}
+        ref={horizontalScrollbarRef}
+      >
         <div
           className={clsx(styles.scrollbarThumb, classNames?.horizontalThumb)}
           style={{ width: horizontalThumbWidth }}

@@ -55,5 +55,5 @@ export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
     return () => {
       contentRef.current?.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [contentRef, verticalScrollbarRef, horizontalScrollbarRef, onScroll]);
 };

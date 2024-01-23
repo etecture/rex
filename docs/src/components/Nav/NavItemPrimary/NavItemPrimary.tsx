@@ -1,10 +1,10 @@
 "use client";
 
-import { UnstyledButton, Group, ThemeIcon, Text } from "@mantine/core";
-import React, { ReactNode } from "react";
+import { Group, Text, ThemeIcon, UnstyledButton } from "@mantine/core";
+import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
+import React, { ReactNode } from "react";
 
 import styles from "./NavItemPrimary.module.css";
 
