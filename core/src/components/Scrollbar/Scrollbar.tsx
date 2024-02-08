@@ -101,6 +101,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     visibility = "hover",
     verticalScrollDisabled = false,
     horizontalScrollDisabled = false,
+    style,
     ...divProps
   } = props;
 
@@ -157,7 +158,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   return (
     <div
       className={containerClassNames}
-      style={{ height, width, minHeight, maxHeight, minWidth, maxWidth }}
+      style={{ height, width, minHeight, maxHeight, minWidth, maxWidth, ...style }}
       {...divProps}
     >
       <div
