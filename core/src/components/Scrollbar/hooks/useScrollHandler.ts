@@ -1,14 +1,19 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 
 export type UseScrollbarHandlerProps = {
   verticalScrollbarRef: RefObject<HTMLDivElement | null>;
   horizontalScrollbarRef: RefObject<HTMLDivElement | null>;
   contentRef: RefObject<HTMLDivElement>;
+  visibilityTimeout: number;
   onScroll?: () => void;
 };
 
 export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
-  const { verticalScrollbarRef, horizontalScrollbarRef, contentRef, onScroll } = props;
+  const { verticalScrollbarRef, horizontalScrollbarRef, contentRef, visibilityTimeout, onScroll } =
+    props;
+
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +21,9 @@ export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
       const contentHeight = contentRef.current?.clientHeight ?? 0;
 
       onScroll?.();
+      setIsScrolling(true);
+      clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = setTimeout(() => setIsScrolling(false), visibilityTimeout);
 
       if (contentRef.current && verticalScrollbarRef.current && horizontalScrollbarRef.current) {
         // VERTICAL
@@ -55,5 +63,7 @@ export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
     return () => {
       contentRef.current?.removeEventListener("scroll", handleScroll);
     };
-  }, [contentRef, verticalScrollbarRef, horizontalScrollbarRef, onScroll]);
+  }, [contentRef, verticalScrollbarRef, horizontalScrollbarRef, visibilityTimeout, onScroll]);
+
+  return { isScrolling };
 };

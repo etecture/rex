@@ -70,6 +70,12 @@ export interface ScrollbarProps
   verticalScrollDisabled?: boolean;
 
   /**
+   * The amount of time the scrollbar remains visible after scrolling
+   * @default 800
+   */
+  visibilityTimeout?: number;
+
+  /**
    * An optional reference to the scroll container.
    * This is the element on which the scroll events happen.
    */
@@ -102,6 +108,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     verticalScrollDisabled = false,
     horizontalScrollDisabled = false,
     style,
+    visibilityTimeout = 800,
     ...divProps
   } = props;
 
@@ -118,10 +125,11 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
   const verticalScrollbarRef = useRef<HTMLDivElement | null>(null);
   const horizontalScrollbarRef = useRef<HTMLDivElement | null>(null);
 
-  useScrollHandler({
+  const { isScrolling } = useScrollHandler({
     horizontalScrollbarRef,
     verticalScrollbarRef,
     contentRef,
+    visibilityTimeout,
   });
 
   const { horizontalDragging, verticalDragging } = useDragHandler({
@@ -137,7 +145,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
       visibility,
     });
 
-  const isTrackVisible = visibility === "always" || isDragging;
+  const isTrackVisible = visibility === "always" || isDragging || isScrolling;
   const isTrackHidden = visibility === "never";
 
   const containerClassNames = clsx(

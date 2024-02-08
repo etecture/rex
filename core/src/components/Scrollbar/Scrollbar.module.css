@@ -46,10 +46,16 @@
       top: var(--rex-scrollbar-offset, 2px);
       bottom: var(--rex-scrollbar-offset, 2px);
       right: var(--rex-scrollbar-offset, 2px);
-      width: calc(var(--rex-scrollbar-width, 10px) - calc(var(--rex-scrollbar-padding, 1px) * 2));
+      width: calc(
+        var(--rex-scrollbar-width, 10px) -
+          calc(var(--rex-scrollbar-padding, 1px) * 2)
+      );
 
       & .scrollbarThumb {
-        width: calc(var(--rex-scrollbar-width, 10px) - calc(var(--rex-scrollbar-padding, 1px) * 2));
+        width: calc(
+          var(--rex-scrollbar-width, 10px) -
+            calc(var(--rex-scrollbar-padding, 1px) * 2)
+        );
         height: 50%;
         min-height: 40px;
       }
@@ -59,10 +65,16 @@
       left: var(--rex-scrollbar-offset, 2px);
       bottom: var(--rex-scrollbar-offset, 2px);
       right: var(--rex-scrollbar-offset, 2px);
-      height: calc(var(--rex-scrollbar-width, 10px) - calc(var(--rex-scrollbar-padding, 1px) * 2));
+      height: calc(
+        var(--rex-scrollbar-width, 10px) -
+          calc(var(--rex-scrollbar-padding, 1px) * 2)
+      );
 
       & .scrollbarThumb {
-        height: calc(var(--rex-scrollbar-width, 10px) - calc(var(--rex-scrollbar-padding, 1px) * 2));
+        height: calc(
+          var(--rex-scrollbar-width, 10px) -
+            calc(var(--rex-scrollbar-padding, 1px) * 2)
+        );
         width: 50%;
         min-width: 40px;
       }
@@ -88,32 +100,55 @@
         border-radius: 10px;
 
         &:active {
-          background: var(--rex-scrollbar-active-thumb-color, rgba(0, 0, 0, 0.95));
+          background: var(
+            --rex-scrollbar-active-thumb-color,
+            rgba(0, 0, 0, 0.95)
+          );
         }
       }
     }
 
     &.hasVerticalScroll > .horizontalTrack {
-      right: calc(var(--rex-scrollbar-offset, 2px) + calc(var(--rex-scrollbar-width, 10px) * 1.2));
+      right: calc(
+        var(--rex-scrollbar-offset, 2px) +
+          calc(var(--rex-scrollbar-width, 10px) * 1.2)
+      );
     }
 
     &.hasHorizontalScroll > .verticalTrack {
-      bottom: calc(var(--rex-scrollbar-offset, 2px) + calc(var(--rex-scrollbar-width, 10px) * 1.2));
+      bottom: calc(
+        var(--rex-scrollbar-offset, 2px) +
+          calc(var(--rex-scrollbar-width, 10px) * 1.2)
+      );
     }
 
-    &.hasVerticalScroll.visible,
-    &.hasVerticalScroll:hover {
+    &.hasVerticalScroll.visible {
       &:not(.trackHidden) > .verticalTrack {
         opacity: 1;
         visibility: visible;
       }
     }
 
-    &.hasHorizontalScroll.visible,
-    &.hasHorizontalScroll:hover {
+    &.hasHorizontalScroll.visible {
       &:not(.trackHidden) > .horizontalTrack {
         opacity: 1;
         visibility: visible;
+      }
+    }
+
+    @media (hover: hover) {
+      &.hasVerticalScroll:hover {
+        &:not(.trackHidden) > .verticalTrack {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      &.hasHorizontalScroll:hover {
+        &:not(.trackHidden) > .horizontalTrack {
+          opacity: 1;
+          visibility: visible;
+        }
       }
     }
   }
