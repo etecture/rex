@@ -40,7 +40,7 @@ const NavItemCategory: React.FC<NavItemCategoryProps> = (props) => {
       </UnstyledButton>
 
       {isOpened && (
-        <Stack py={8} className={styles.category}>
+        <Stack py={8} className={styles.category} gap={0}>
           {items.map((item) => (
             <NavItem key={item.route} label={item.label} route={item.route} />
           ))}

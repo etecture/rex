@@ -14,7 +14,10 @@ const Nav: React.FC = () => {
       <Stack mt={"lg"}>
         <NavItemCategory
           label="components"
-          items={[{ label: "Scrollbar", route: "/docs/components/scrollbar" }]}
+          items={[
+            { label: "Table", route: "/docs/components/table" },
+            { label: "Scrollbar", route: "/docs/components/scrollbar" },
+          ]}
         />
         <NavItemCategory
           label="hooks"

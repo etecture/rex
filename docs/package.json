@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@etecture/rex": "^0.1.4",
-    "@mantine/code-highlight": "^7.4.2",
-    "@mantine/core": "^7.4.2",
-    "@mantine/hooks": "^7.4.2",
+    "@mantine/code-highlight": "7.6.1",
+    "@mantine/core": "7.6.1",
+    "@mantine/hooks": "7.6.1",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.1.0",

@@ -2,8 +2,8 @@
 
 import { Container, DefaultMantineColor, MantineColorsTuple, createTheme } from "@mantine/core";
 
-import "@mantine/code-highlight/styles.layer.css";
 import "@mantine/core/styles.layer.css";
+import "@mantine/code-highlight/styles.layer.css";
 
 import "@etecture/rex/styles.css";
 

@@ -7,6 +7,12 @@
   padding-bottom: 4px;
   border-left: 1px solid transparent;
 
+  &:hover {
+    background: var(--mantine-color-primary-7);
+    border-left: 1px solid var(--mantine-color-primary-4);
+    color: white;
+  }
+
   &.active {
     background: var(--mantine-color-primary-6);
     border-left: 1px solid var(--mantine-color-primary-2);
