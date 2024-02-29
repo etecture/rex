@@ -21,7 +21,9 @@
     },
     "./styles.css": "./dist/styles.css"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "npm run cleanup && rexb build src/index.ts",
@@ -33,7 +35,9 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "clsx": "^2.1.0"
+    "@tanstack/react-virtual": "^3.0.4",
+    "clsx": "^2.1.0",
+    "jotai": "^2.6.4"
   },
   "devDependencies": {
     "@etecture/rex-builder": "0.1.0",
