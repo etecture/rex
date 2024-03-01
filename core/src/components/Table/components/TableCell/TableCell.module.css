@@ -1,0 +1,29 @@
+@layer {
+  .cell {
+    box-sizing: border-box;
+    background-color: var(--rex-table-cell-background-color);
+    border-right: var(--rex-table-cell-border-vertical-width, 1px) solid
+      var(--rex-table-cell-border-color, #dbdbdb);
+    border-bottom: var(--rex-table-cell-border-horizontal-width, 1px) solid
+      var(--rex-table-cell-border-color, #dbdbdb);
+    transition:
+      background-color 100ms,
+      border-color 100ms;
+
+    &:last-child {
+      border-right: 0;
+    }
+
+    & .content {
+      padding: var(--rex-table-cell-padding);
+      box-sizing: border-box;
+
+      & .inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+    }
+  }
+}
