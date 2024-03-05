@@ -3,13 +3,13 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Table } from "../Table";
 import { DefaultTableRow } from "../interface/DefaultTableRow";
 import { TableColumn } from "../interface/TableColumn";
-import { GenericData, generateData, genericColumns } from "./util/generateData";
+import { generateData, genericColumns } from "./util/generateData";
 import { useState } from "react";
 import { TableRowId } from "../interface/TableRowId";
 import { TableProps } from "../interface/TableProps";
 
 const defaultData = generateData({ amount: 500 });
-const defaultColumns = genericColumns as TableColumn[];
+const defaultColumns = genericColumns as TableColumn<DefaultTableRow>[];
 const headerlessColumns = defaultColumns.map((it) => ({ ...it, header: undefined }));
 
 export default {
@@ -33,9 +33,9 @@ export default {
     stickyHeader: true,
     borders: { table: true, horizontal: true, vertical: false },
     stripedRows: false,
-    getRowId: ((row: GenericData) => row.id) as (row: DefaultTableRow) => string,
+    getRowId: (row) => row.id,
     getRowHeight: () => 50,
-  },
+  } as Partial<TableProps<DefaultTableRow>>,
 } satisfies Meta<typeof Table>;
 
 type Story = StoryObj<typeof Table>;

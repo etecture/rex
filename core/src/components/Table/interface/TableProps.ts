@@ -12,7 +12,8 @@ export type OnSelectRow<TRow extends DefaultTableRow> = (props: OnSelectRowProps
 export type OnDeselectRowProps<TRow extends DefaultTableRow> = { row: TRow; id: TableRowId };
 export type OnDeselectRow<TRow extends DefaultTableRow> = (props: OnDeselectRowProps<TRow>) => void;
 
-export type TableProps<TRow extends DefaultTableRow> = {
+export interface TableProps<TRow extends DefaultTableRow>
+  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   data: TRow[];
   columns: TableColumn<TRow>[];
 
@@ -68,4 +69,4 @@ export type TableProps<TRow extends DefaultTableRow> = {
    * @default false
    */
   stripedRows?: boolean;
-};
+}

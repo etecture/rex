@@ -28,6 +28,7 @@ const Table = <TRow extends DefaultTableRow>(props: TableProps<TRow>) => {
   const topOffset = virtualizedItems[0]?.start ?? 0;
 
   const containerClasses = clsx(
+    tableProps.className,
     styles.container,
     isScrolled && styles.scrolled,
     tableProps.borders.table && styles.withTableBorders,
@@ -37,7 +38,7 @@ const Table = <TRow extends DefaultTableRow>(props: TableProps<TRow>) => {
   );
 
   return (
-    <Scrollbar className={containerClasses} viewportRef={viewportRef}>
+    <Scrollbar {...tableProps.divProps} className={containerClasses} viewportRef={viewportRef}>
       <div style={{ height: virtualizer.getTotalSize() }}>
         <table>
           {hasHeader && (
@@ -51,7 +52,7 @@ const Table = <TRow extends DefaultTableRow>(props: TableProps<TRow>) => {
           )}
 
           <tbody>
-            <tr style={{ height: topOffset }} />
+            <tr style={{ height: topOffset, overflowAnchor: "none" }} />
             {virtualizedItems.map((virtualItem) => {
               const row = tableProps.data[virtualItem.index];
               const rowId = tableProps.getRowId(row);

@@ -10,7 +10,7 @@
     "docgen": "bun run ./docgen/generate.ts"
   },
   "dependencies": {
-    "@etecture/rex": "^0.1.4",
+    "@etecture/rex": "0.3.0",
     "@mantine/code-highlight": "7.6.1",
     "@mantine/core": "7.6.1",
     "@mantine/hooks": "7.6.1",

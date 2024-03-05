@@ -22,7 +22,7 @@ type TableColumnWithRenderer<TRow extends DefaultTableRow> = {
   cellRenderer: TableCellRenderer<TRow>;
 };
 
-export type TableColumn<TRow extends DefaultTableRow = DefaultTableRow> = {
+export type TableColumn<TRow extends DefaultTableRow> = {
   /**
    * A unique id for the column
    */

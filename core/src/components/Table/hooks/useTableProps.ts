@@ -18,38 +18,58 @@ export type ComposedTableProps<TRow extends DefaultTableRow> = {
   stripedRows: boolean;
   borders: TableBorders;
   selectedRows: TableRowId[];
+  className?: string;
   getRowId: GetRowId<TRow>;
   getRowHeight: GetRowHeight<TRow>;
   onSelectRow?: OnSelectRow<TRow>;
   onDeselectRow?: OnDeselectRow<TRow>;
+  divProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 };
 
 export const useTableProps = <TRow extends DefaultTableRow>(props: TableProps<TRow>) => {
-  const borders: TableBorders =
-    typeof props.borders === "boolean"
-      ? { horizontal: props.borders, table: props.borders, vertical: props.borders }
+  const {
+    columns,
+    data,
+    className,
+    getRowId,
+    overscan,
+    getRowHeight,
+    stickyHeader,
+    stripedRows,
+    borders,
+    selectedRows,
+    onSelectRow,
+    onDeselectRow,
+    ...divProps
+  } = props;
+
+  const _borders: TableBorders =
+    typeof borders === "boolean"
+      ? { horizontal: borders, table: borders, vertical: borders }
       : {
-          horizontal: props.borders?.horizontal ?? true,
-          table: props.borders?.table ?? true,
-          vertical: props.borders?.vertical ?? false,
+          horizontal: borders?.horizontal ?? true,
+          table: borders?.table ?? true,
+          vertical: borders?.vertical ?? false,
         };
 
-  let selectedRows: TableRowId[] = [];
-  if (props.selectedRows) {
-    selectedRows = Array.isArray(props.selectedRows) ? props.selectedRows : [props.selectedRows];
+  let _selectedRows: TableRowId[] = [];
+  if (selectedRows) {
+    _selectedRows = Array.isArray(selectedRows) ? selectedRows : [selectedRows];
   }
 
   return {
-    columns: props.columns,
-    data: props.data,
-    getRowId: props.getRowId,
-    overscan: props.overscan ?? 5,
-    getRowHeight: props.getRowHeight ?? (() => 36),
-    stickyHeader: props.stickyHeader ?? true,
-    stripedRows: props.stripedRows ?? false,
-    borders,
-    selectedRows,
-    onSelectRow: props.onSelectRow,
-    onDeselectRow: props.onDeselectRow,
+    columns: columns,
+    data: data,
+    getRowId,
+    overscan: overscan ?? 5,
+    getRowHeight: getRowHeight ?? (() => 36),
+    stickyHeader: stickyHeader ?? true,
+    stripedRows: stripedRows ?? false,
+    borders: _borders,
+    selectedRows: _selectedRows,
+    onSelectRow: onSelectRow,
+    onDeselectRow: onDeselectRow,
+    className,
+    divProps: divProps,
   } as const satisfies ComposedTableProps<TRow>;
 };

@@ -1,5 +1,5 @@
 {
-  "include": ["core", "docs", ".storybook", "types.d.ts", "playwright"],
+  "include": ["core", "docs", ".storybook", "types.d.ts", "playwright", "postcss.config.js"],
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
