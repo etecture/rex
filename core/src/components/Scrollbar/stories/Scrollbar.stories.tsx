@@ -10,13 +10,23 @@ const loremIpsum = (
     <p>
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
       Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-      mus.
+      mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
+      massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim
+      justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
     </p>
 
     <p>
       Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
       quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
       rhoncus ut, imperdiet a, venenatis vitae, justo.
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+      Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+      mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
+      massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim
+      justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
     </p>
 
     <p>
@@ -41,6 +51,7 @@ export default {
   argTypes: {
     horizontalScrollDisabled: { control: "boolean" },
     verticalScrollDisabled: { control: "boolean" },
+    scrollDirection: { control: "radio", options: ["vertical", "horizontal"] },
     visibility: {
       control: "select",
       options: ["always", "hover", "never"],
@@ -52,6 +63,9 @@ export default {
     h: 300,
     w: 400,
     visibility: "hover",
+    horizontalScrollDisabled: false,
+    verticalScrollDisabled: false,
+    scrollDirection: "vertical",
     classNames: {
       root: styles.root,
     },
@@ -74,6 +88,18 @@ export const Horizontal: Story = {
       <div style={{ width: 600 }}>{loremIpsum}</div>
     </Scrollbar>
   ),
+};
+
+export const ScrollHorizontally: Story = {
+  render: (args) => (
+    <Scrollbar {...args}>
+      <div style={{ width: 1500, height: 1000 }}>{loremIpsum}</div>
+    </Scrollbar>
+  ),
+  args: {
+    w: 600,
+    scrollDirection: "horizontal",
+  },
 };
 
 export const Customized: Story = {

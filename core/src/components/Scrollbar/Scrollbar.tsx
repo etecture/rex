@@ -76,6 +76,13 @@ export interface ScrollbarProps
   visibilityTimeout?: number;
 
   /**
+   * Controls the scroll direction when using the mouse wheel.
+   * By default shift + wheel scrolls horizontally, setting this prop to "horizontal" inverts that behaviour.
+   * @default "vertical"
+   */
+  scrollDirection?: "vertical" | "horizontal";
+
+  /**
    * An optional reference to the scroll container.
    * This is the element on which the scroll events happen.
    */
@@ -109,6 +116,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     horizontalScrollDisabled = false,
     style,
     visibilityTimeout = 800,
+    scrollDirection = "vertical",
     ...divProps
   } = props;
 
@@ -130,6 +138,7 @@ export const Scrollbar: React.FC<ScrollbarProps> = (props) => {
     verticalScrollbarRef,
     contentRef,
     visibilityTimeout,
+    verticalToHorizontalScroll: scrollDirection === "horizontal",
   });
 
   const { horizontalDragging, verticalDragging } = useDragHandler({

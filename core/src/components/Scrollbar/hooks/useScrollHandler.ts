@@ -5,15 +5,25 @@ export type UseScrollbarHandlerProps = {
   horizontalScrollbarRef: RefObject<HTMLDivElement | null>;
   contentRef: RefObject<HTMLDivElement>;
   visibilityTimeout: number;
+  verticalToHorizontalScroll: boolean;
   onScroll?: () => void;
 };
 
 export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
-  const { verticalScrollbarRef, horizontalScrollbarRef, contentRef, visibilityTimeout, onScroll } =
-    props;
+  const {
+    verticalScrollbarRef,
+    horizontalScrollbarRef,
+    contentRef,
+    visibilityTimeout,
+    verticalToHorizontalScroll,
+    onScroll,
+  } = props;
 
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+
+  const targetScrollLeft = useRef(contentRef.current?.scrollLeft ?? 0);
+  const targetScrollTop = useRef(contentRef.current?.scrollTop ?? 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,12 +68,81 @@ export const useScrollHandler = (props: UseScrollbarHandlerProps) => {
       }
     };
 
+    const handleWheel = (event: WheelEvent) => {
+      if (!contentRef.current) return;
+      if (!verticalToHorizontalScroll) return;
+      event.preventDefault();
+
+      const beforeLeft = contentRef.current.scrollLeft;
+      const beforeTop = contentRef.current.scrollTop;
+
+      const scrollWidth = contentRef.current.scrollWidth - contentRef.current.clientWidth;
+      const scrollHeight = contentRef.current.scrollHeight - contentRef.current.clientHeight;
+
+      targetScrollLeft.current = Math.max(
+        Math.min(targetScrollLeft.current + event.deltaY, scrollWidth),
+        0,
+      );
+
+      targetScrollTop.current = Math.max(
+        Math.min(targetScrollTop.current + event.deltaY, scrollHeight),
+        0,
+      );
+
+      const getScrollStep = () => {
+        return event.deltaY / 15;
+      };
+
+      const smoothHorizontalScroll = () => {
+        if (!contentRef.current) return;
+        const step = getScrollStep();
+
+        if (event.shiftKey) {
+          contentRef.current.scrollBy({ top: step });
+
+          const scrollTop = contentRef.current.scrollTop;
+
+          const reachedPositiveTarget = scrollTop >= targetScrollTop.current && step >= 0;
+          const reachedNegativeTarget = scrollTop <= targetScrollTop.current && step <= 0;
+
+          if (reachedPositiveTarget || reachedNegativeTarget) return;
+          if (scrollTop === beforeTop) return;
+        } else {
+          contentRef.current.scrollBy({ left: step });
+
+          const scrollLeft = contentRef.current.scrollLeft;
+
+          const reachedPositiveTarget = scrollLeft >= targetScrollLeft.current && step >= 0;
+          const reachedNegativeTarget = scrollLeft <= targetScrollLeft.current && step <= 0;
+
+          if (reachedPositiveTarget || reachedNegativeTarget) return;
+          if (scrollLeft === beforeLeft) return;
+        }
+
+        requestAnimationFrame(smoothHorizontalScroll);
+      };
+
+      requestAnimationFrame(smoothHorizontalScroll);
+    };
+
     contentRef.current?.addEventListener("scroll", handleScroll);
+
+    if (verticalToHorizontalScroll) {
+      contentRef.current?.addEventListener("wheel", handleWheel);
+    }
 
     return () => {
       contentRef.current?.removeEventListener("scroll", handleScroll);
+      contentRef.current?.removeEventListener("wheel", handleWheel);
     };
-  }, [contentRef, verticalScrollbarRef, horizontalScrollbarRef, visibilityTimeout, onScroll]);
+  }, [
+    contentRef,
+    verticalScrollbarRef,
+    horizontalScrollbarRef,
+    visibilityTimeout,
+    verticalToHorizontalScroll,
+    onScroll,
+  ]);
 
   return { isScrolling };
 };
