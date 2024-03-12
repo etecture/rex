@@ -81,8 +81,6 @@ export const useSwiper = (props: UseSwiperProps) => {
       velocityX.current = viewportRef.current.scrollLeft - previousScrollLeft.current;
       previousScrollLeft.current = viewportRef.current.scrollLeft;
 
-      console.log(velocityX.current);
-
       if (isDragging.current === true) {
         momentumTrackRAF.current = requestAnimationFrame(trackMomentumLoop);
       }
@@ -90,8 +88,6 @@ export const useSwiper = (props: UseSwiperProps) => {
 
     const handleMouseUp = () => {
       isDragging.current = false;
-
-      console.log("mouse up", velocityX.current);
       beginMomentumScroll();
     };
 
