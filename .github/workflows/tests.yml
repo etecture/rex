@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: pnpm i -r
       - name: Lint project
-        run: pnpm exec biome ci .
+        run: pnpm exec biome ci . --changed --since=origin/main
       - name: Install playwright
         run: pnpm exec playwright install --with-deps
       - name: Run Tests
