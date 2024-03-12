@@ -1,7 +1,7 @@
 import { Box, Group, MantineProvider, Stack } from "@mantine/core";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { Header } from "@/components/Header/Header";
 import { Nav } from "@/components/Nav/Nav";

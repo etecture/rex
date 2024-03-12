@@ -3,7 +3,8 @@
 import { Scrollbar } from "@etecture/rex";
 import { CodeHighlight } from "@mantine/code-highlight";
 import { Container, Paper, Tabs, TabsList, TabsPanel, TabsTab, Text, Title } from "@mantine/core";
-import React, { ReactNode, useState } from "react";
+import type React from "react";
+import { type ReactNode, useState } from "react";
 
 import { docs } from "../../../docgen/docgen";
 import { PropTable } from "../../components/PropTable/PropTable";

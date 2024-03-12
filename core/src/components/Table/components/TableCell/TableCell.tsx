@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useCellValue } from "../../hooks/useCellValue";
-import { DefaultTableRow } from "../../interface/DefaultTableRow";
-import { TableColumn } from "../../interface/TableColumn";
+import type { DefaultTableRow } from "../../interface/DefaultTableRow";
+import type { TableColumn } from "../../interface/TableColumn";
 import styles from "./TableCell.module.css";
 
 export type TableCellProps<TRow extends DefaultTableRow> = {

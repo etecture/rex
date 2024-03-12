@@ -4,7 +4,7 @@ import { Group, Stack, Text, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown, IconChevronRight } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
-import React from "react";
+import type React from "react";
 
 import { NavItem } from "../NavItem/NavItem";
 

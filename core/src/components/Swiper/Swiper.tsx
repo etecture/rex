@@ -1,8 +1,8 @@
-import { ReactNode, useRef } from "react";
-import { Scrollbar, ScrollbarProps } from "..";
-import { UseSwiperProps, useSwiper } from "../..";
-import styles from "./Swiper.module.css";
 import clsx from "clsx";
+import { type ReactNode, useRef } from "react";
+import { Scrollbar, type ScrollbarProps } from "..";
+import { type UseSwiperProps, useSwiper } from "../..";
+import styles from "./Swiper.module.css";
 
 export interface SwiperProps extends Partial<UseSwiperProps> {
   children?: ReactNode;

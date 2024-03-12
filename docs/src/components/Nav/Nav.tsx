@@ -1,6 +1,6 @@
 import { Stack } from "@mantine/core";
 import { IconCompass, IconInfoCircle } from "@tabler/icons-react";
-import React from "react";
+import type React from "react";
 
 import { NavItemCategory } from "./NavItemCategory/NavItemCategory";
 import { NavItemPrimary } from "./NavItemPrimary/NavItemPrimary";

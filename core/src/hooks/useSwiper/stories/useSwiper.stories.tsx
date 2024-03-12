@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { UseSwiperProps, useSwiper } from "../useSwiper";
+import type { Meta, StoryObj } from "@storybook/react";
 import { useRef } from "react";
+import { type UseSwiperProps, useSwiper } from "../useSwiper";
 
 export default {
   title: "Hooks/useSwiper",

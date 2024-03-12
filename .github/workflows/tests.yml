@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: pnpm i -r
       - name: Lint project
-        run: pnpm run lint
+        run: pnpm run lint:relative
       - name: Install playwright
         run: pnpm exec playwright install --with-deps
       - name: Run Tests

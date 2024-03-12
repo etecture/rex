@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef, useState } from "react";
+import { type RefObject, useEffect, useRef, useState } from "react";
 
 export type UseScrollbarHandlerProps = {
   verticalScrollbarRef: RefObject<HTMLDivElement | null>;

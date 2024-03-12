@@ -1,4 +1,4 @@
-import { TableColumn } from "../../interface/TableColumn";
+import type { TableColumn } from "../../interface/TableColumn";
 import { Check } from "./Check";
 
 export type GenericData = {

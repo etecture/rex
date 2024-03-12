@@ -1,7 +1,7 @@
 import { fireEvent, renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { BreakpointValues, DEFAULT_BREAKPOINTS, useBreakpoint } from "./useBreakpoint";
+import { type BreakpointValues, DEFAULT_BREAKPOINTS, useBreakpoint } from "./useBreakpoint";
 
 const resize = (width: number) => {
   window.innerWidth = width;

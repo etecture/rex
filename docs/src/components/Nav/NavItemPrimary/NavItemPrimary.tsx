@@ -4,7 +4,8 @@ import { Group, Text, ThemeIcon, UnstyledButton } from "@mantine/core";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { ReactNode } from "react";
+import type React from "react";
+import type { ReactNode } from "react";
 
 import styles from "./NavItemPrimary.module.css";
 

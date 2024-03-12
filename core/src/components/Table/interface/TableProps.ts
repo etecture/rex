@@ -1,7 +1,7 @@
-import { DefaultTableRow } from "./DefaultTableRow";
-import { TableBorders } from "./TableBorders";
-import { TableColumn } from "./TableColumn";
-import { TableRowId } from "./TableRowId";
+import type { DefaultTableRow } from "./DefaultTableRow";
+import type { TableBorders } from "./TableBorders";
+import type { TableColumn } from "./TableColumn";
+import type { TableRowId } from "./TableRowId";
 
 export type GetRowId<TRow extends DefaultTableRow> = (row: TRow) => TableRowId;
 export type GetRowHeight<TRow extends DefaultTableRow> = (row: TRow, index: number) => number;

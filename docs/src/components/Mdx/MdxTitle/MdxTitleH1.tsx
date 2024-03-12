@@ -1,5 +1,6 @@
 import { Title } from "@mantine/core";
-import React, { ReactNode } from "react";
+import type React from "react";
+import type { ReactNode } from "react";
 
 export interface MdxTitleH1Props {
   children?: ReactNode;

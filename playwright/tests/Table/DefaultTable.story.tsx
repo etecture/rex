@@ -1,4 +1,4 @@
-import { Table, TableColumn } from "../../../core/src";
+import { Table, type TableColumn } from "../../../core/src";
 
 type MyData = { id: number; a: string; b: string; c: number };
 

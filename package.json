@@ -8,6 +8,9 @@
     "build-storybook": "storybook build",
     "build-all": "pnpm -r --filter './tools/**' --filter './core/**' run build ",
     "lint": "biome check .",
+    "lint:relative": "biome check . --changed --since main",
+    "lint:fix": "biome check . --apply --changed --since main",
+    "lint:fixAll": "biome check . --apply",
     "dev": "pnpm -r --parallel run dev",
     "test": "vitest",
     "ct:run": "playwright test -c playwright-ct.config.ts"

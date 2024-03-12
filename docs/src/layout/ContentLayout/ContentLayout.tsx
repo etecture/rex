@@ -2,7 +2,8 @@
 
 import { Scrollbar } from "@etecture/rex";
 import { Container } from "@mantine/core";
-import React, { ReactNode } from "react";
+import type React from "react";
+import type { ReactNode } from "react";
 
 export interface ContentLayoutProps {
   children: ReactNode;
