@@ -15,7 +15,7 @@
   "author": "Rico Maier <rico.maier@etecture.de>",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
+    "@biomejs/biome": "1.6.0",
     "@opentelemetry/api": "^1.7.0",
     "@playwright/experimental-ct-react": "^1.42.1",
     "@playwright/test": "^1.42.1",
