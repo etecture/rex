@@ -21,10 +21,12 @@ jobs:
         with:
           node-version: 18
           cache: "pnpm"
-      - name: Install and Build 🔧
-        run: |
-          pnpm i -r
-          pnpm exec playwright install --with-deps
+      - name: Install dependencies
+        run: pnpm i -r
+      - name: Lint project
+        run: pnpm run lint
+      - name: Install playwright
+        run: pnpm exec playwright install --with-deps
       - name: Run Tests
         run: |
           pnpm run test
