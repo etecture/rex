@@ -18,6 +18,9 @@
         "noUnusedVariables": "warn",
         "noUnusedImports": "warn"
       },
+      "suspicious": {
+        "noConsoleLog": "warn"
+      },
       "complexity": {
         "noForEach": "warn"
       }

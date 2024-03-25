@@ -17,11 +17,15 @@ const Nav: React.FC = () => {
           items={[
             { label: "Table", route: "/docs/components/table" },
             { label: "Scrollbar", route: "/docs/components/scrollbar" },
+            { label: "Swiper", route: "/docs/components/swiper" },
           ]}
         />
         <NavItemCategory
           label="hooks"
-          items={[{ label: "useBreakpoint", route: "/docs/hooks/use-breakpoint" }]}
+          items={[
+            { label: "useBreakpoint", route: "/docs/hooks/use-breakpoint" },
+            { label: "useSwiper", route: "/docs/hooks/use-swiper" },
+          ]}
         />
       </Stack>
     </Stack>

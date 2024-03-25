@@ -8,12 +8,12 @@ export default {
     layout: "centered",
   },
   argTypes: {
-    dampenerMultiplier: { control: { type: "number", step: 0.05 } },
+    dampenerMultiplier: { control: { type: "number", step: 0.01 } },
     velocityMultiplier: { control: "number" },
   },
   args: {
-    dampenerMultiplier: 0.96,
-    velocityMultiplier: 6,
+    dampenerMultiplier: 0.97,
+    velocityMultiplier: 1,
   },
 } satisfies Meta<UseSwiperProps>;
 
