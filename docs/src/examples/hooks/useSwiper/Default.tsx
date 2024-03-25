@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { useSwiper } from "@etecture/rex";
+import { useRef } from "react";
 
 const code = `
 import { useRef } from "react";

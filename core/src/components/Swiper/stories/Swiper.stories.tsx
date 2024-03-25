@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Swiper } from "../Swiper";
 import { useState } from "react";
+import { Swiper } from "../Swiper";
 
 export default {
   title: "Components/Swiper",

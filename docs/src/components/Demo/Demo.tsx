@@ -1,8 +1,8 @@
-import { Suspense } from "react";
-import styles from "./Demo.module.css";
-import { Box, Divider, Paper } from "@mantine/core";
-import type { FC } from "react";
 import { CodeHighlightTabs } from "@mantine/code-highlight";
+import { Box, Divider, Paper } from "@mantine/core";
+import { Suspense } from "react";
+import type { FC } from "react";
+import styles from "./Demo.module.css";
 
 export interface DemoProps {
   data: { code: string; component: FC };
