@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: pnpm/action-setup@v3
         with:
           version: 8
@@ -26,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: pnpm i -r
       - name: Lint project
-        run: pnpm exec biome ci . --changed --since=origin/main
+        run: pnpm exec biome ci .
       - name: Install playwright
         run: pnpm exec playwright install --with-deps
       - name: Run Tests
