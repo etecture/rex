@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { DefaultTableRow } from "./DefaultTableRow";
+import type { ReactNode } from "react";
+import type { DefaultTableRow } from "./DefaultTableRow";
 
 export type TableColumnAccessor<TRow extends DefaultTableRow> =
   | keyof TRow

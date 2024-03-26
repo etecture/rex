@@ -1,0 +1,30 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+import { Default } from "@/examples/hooks/useSwiper"
+
+```tsx
+// a ref to the scrollable container
+const viewportRef = useRef<HTMLDivElement>(null);
+useSwiper({ viewportRef });
+```
+
+The hook will catch mouse events to simulate a mobile swipe behaviour. When the device already has touch the hook will not do anything to retain the native swipe behaviour.
+
+There are two specific properties to control the momentum after releasing the mouse.
+
+```tsx
+useSwiper({ viewportRef, dampenerMultiplier: 0.97, velocityMultiplier: 1 });
+```
+
+The `dampenerMultiplier` controls how fast the velocity subsides with each frame, the smaller the number the faster the velocity decreases with each frame.
+e.g. `0.96` will reduce the velocity by 4% each frame, `0.50` would reduce it by 50% each frame.
+
+The `velocityMultiplier` on the other hand multiplies the momentum of the scroll when releasing the mouse. `1` would be roughly the speed of movement when the mouse was released.
+
+## Example
+
+<Demo data={Default} />
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"useSwiper"}>{children}</ComponentLayout>;
+}

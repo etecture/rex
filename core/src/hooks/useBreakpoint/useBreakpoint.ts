@@ -54,7 +54,6 @@ export const useBreakpoint = <Values extends BreakpointValues>(
 ): UseBreakpointResult<Values["xs"]> => {
   const mergedBreakpoints = { ...DEFAULT_BREAKPOINTS, ...breakpoints };
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: breakpoints[size] gets falsely marked as a warning
   const getBreakpoint = useCallback(() => {
     let _breakpoint: BreakpointKey = "xs";
 

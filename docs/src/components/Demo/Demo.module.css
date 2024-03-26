@@ -1,0 +1,5 @@
+.container {
+  background-color: var(--mantine-color-dark-8);
+  border-color: var(--mantine-color-dark-6);
+  overflow: hidden;
+}

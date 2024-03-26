@@ -1,0 +1,25 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+import { Default } from "@/examples/components/Swiper"
+
+```tsx
+<Swiper>
+  <img
+    width={4000}
+    height={200}
+    alt={"lorem picsum"}
+    src={"https://picsum.photos/4000/200"}
+  />
+</Swiper>
+```
+
+This component is a convenience wrapper which uses the `useSwiper` hook under the hood.
+The behaviour and configuration is the same. Checkout [useSwiper](/docs/hooks/use-swiper) for more.
+
+## Example
+
+<Demo data={Default} />
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"Swiper"}>{children}</ComponentLayout>;
+}

@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { BreakpointValues, useBreakpoint } from "../useBreakpoint";
+import { type BreakpointValues, useBreakpoint } from "../useBreakpoint";
 
 export default {
   title: "Hooks/useBreakpoint",

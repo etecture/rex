@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Table } from "../Table";
-import { DefaultTableRow } from "../interface/DefaultTableRow";
-import { TableColumn } from "../interface/TableColumn";
-import { generateData, genericColumns } from "./util/generateData";
 import { useState } from "react";
-import { TableRowId } from "../interface/TableRowId";
-import { TableProps } from "../interface/TableProps";
+import { Table } from "../Table";
+import type { DefaultTableRow } from "../interface/DefaultTableRow";
+import type { TableColumn } from "../interface/TableColumn";
+import type { TableProps } from "../interface/TableProps";
+import type { TableRowId } from "../interface/TableRowId";
+import { generateData, genericColumns } from "./util/generateData";
 
 const defaultData = generateData({ amount: 500 });
 const defaultColumns = genericColumns as TableColumn<DefaultTableRow>[];

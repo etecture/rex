@@ -1,6 +1,6 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from "react";
+import { type RefObject, useCallback, useEffect, useRef, useState } from "react";
 
-import { ScrollbarProps } from "../Scrollbar";
+import type { ScrollbarProps } from "../Scrollbar";
 
 type ScrollData = {
   hasHorizontalScroll: boolean;

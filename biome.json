@@ -1,5 +1,8 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.6.0/schema.json",
+  "vcs": {
+    "defaultBranch": "main"
+  },
   "organizeImports": {
     "enabled": true
   },
@@ -12,13 +15,14 @@
       },
       "correctness": {
         "useExhaustiveDependencies": "warn",
-        "noUnusedVariables": "warn"
+        "noUnusedVariables": "warn",
+        "noUnusedImports": "warn"
+      },
+      "suspicious": {
+        "noConsoleLog": "warn"
       },
       "complexity": {
         "noForEach": "warn"
-      },
-      "nursery": {
-        "noUnusedImports": "warn"
       }
     }
   },

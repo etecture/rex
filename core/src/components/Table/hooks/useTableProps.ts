@@ -1,14 +1,14 @@
-import { DefaultTableRow } from "../interface/DefaultTableRow";
-import { TableBorders } from "../interface/TableBorders";
-import { TableColumn } from "../interface/TableColumn";
-import {
+import type { DefaultTableRow } from "../interface/DefaultTableRow";
+import type { TableBorders } from "../interface/TableBorders";
+import type { TableColumn } from "../interface/TableColumn";
+import type {
   GetRowHeight,
   GetRowId,
   OnDeselectRow,
   OnSelectRow,
   TableProps,
 } from "../interface/TableProps";
-import { TableRowId } from "../interface/TableRowId";
+import type { TableRowId } from "../interface/TableRowId";
 
 export type ComposedTableProps<TRow extends DefaultTableRow> = {
   data: TRow[];

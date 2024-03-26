@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import { DefaultTableRow } from "../../interface/DefaultTableRow";
-import { TableColumn } from "../../interface/TableColumn";
+import type { DefaultTableRow } from "../../interface/DefaultTableRow";
+import type { TableColumn } from "../../interface/TableColumn";
+import type { OnDeselectRow, OnSelectRow } from "../../interface/TableProps";
 import { TableCell } from "../TableCell/TableCell";
 import styles from "./TableRow.module.css";
-import { OnDeselectRow, OnSelectRow } from "../../interface/TableProps";
 
 export type TableRowProps<TRow extends DefaultTableRow> = {
   id: string | number;

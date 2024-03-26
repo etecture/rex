@@ -1,7 +1,8 @@
 "use client";
 
 import { CodeHighlight } from "@mantine/code-highlight";
-import React, { PropsWithChildren, ReactElement } from "react";
+import type React from "react";
+import type { PropsWithChildren, ReactElement } from "react";
 
 import styles from "./MdxPre.module.css";
 

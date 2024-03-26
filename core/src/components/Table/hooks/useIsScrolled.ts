@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useState } from "react";
+import { type RefObject, useEffect, useState } from "react";
 
 export const useIsScrolled = (ref: RefObject<HTMLDivElement>) => {
   const [isScrolled, setIsScrolled] = useState(false);

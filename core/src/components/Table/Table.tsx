@@ -1,14 +1,14 @@
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { ElementRef, useRef } from "react";
+import clsx from "clsx";
+import { type ElementRef, useRef } from "react";
 import { Scrollbar } from "..";
 import styles from "./Table.module.css";
 import { TableHeader } from "./components/TableHeader/TableHeader";
 import { TableRow } from "./components/TableRow/TableRow";
-import { useTableProps } from "./hooks/useTableProps";
-import { DefaultTableRow } from "./interface/DefaultTableRow";
-import { TableProps } from "./interface/TableProps";
 import { useIsScrolled } from "./hooks/useIsScrolled";
-import clsx from "clsx";
+import { useTableProps } from "./hooks/useTableProps";
+import type { DefaultTableRow } from "./interface/DefaultTableRow";
+import type { TableProps } from "./interface/TableProps";
 
 const Table = <TRow extends DefaultTableRow>(props: TableProps<TRow>) => {
   const tableProps = useTableProps(props);

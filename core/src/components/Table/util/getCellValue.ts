@@ -1,5 +1,5 @@
-import { DefaultTableRow } from "../interface/DefaultTableRow";
-import { TableColumn } from "../interface/TableColumn";
+import type { DefaultTableRow } from "../interface/DefaultTableRow";
+import type { TableColumn } from "../interface/TableColumn";
 
 export const getCellValue = <TRow extends DefaultTableRow>(
   row: TRow,

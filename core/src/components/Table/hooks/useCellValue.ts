@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { DefaultTableRow } from "../interface/DefaultTableRow";
-import { TableColumn } from "../interface/TableColumn";
+import type { DefaultTableRow } from "../interface/DefaultTableRow";
+import type { TableColumn } from "../interface/TableColumn";
 import { getCellValue } from "../util/getCellValue";
 
 export type UseCellValueProps<TRow extends DefaultTableRow> = {

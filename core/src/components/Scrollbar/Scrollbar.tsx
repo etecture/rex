@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, { CSSProperties, MutableRefObject, ReactNode, useRef } from "react";
+import type React from "react";
+import { type CSSProperties, type MutableRefObject, type ReactNode, useRef } from "react";
 
 import { useContentUpdate } from "./hooks/useContentUpdate";
 import { useDragHandler } from "./hooks/useDragHandler";
