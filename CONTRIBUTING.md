@@ -26,13 +26,15 @@ If you wish to make multiple changes be sure to split them into separate commits
 Your commit message should have the following format:
 
 ```
-[<package>] <scope>: Fixes a missing default style for the horizontal thumb
+[<component>]: Fixes a missing default style for the horizontal thumb
 ```
 
 e.g.
 
 ```
-[@etecture/rex] Scrollbar: Fixes a missing default style for the horizontal thumb
+[Scrollbar]: Fixes a missing default style for the horizontal thumb
+[useSwiper]: Adds initial hook
+[docs]: improves next.js config
 ```
 
 You can also provide more information on additional lines but your first line should always be concise and include the package and scope.
