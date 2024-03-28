@@ -1,4 +1,6 @@
 import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+import { Default, Headerless } from "@/examples/components/Table"
 
 A simple data table with high customizability.
 
@@ -68,6 +70,15 @@ All table styles are wrapped in a `@layer` so you can easily override styles and
   --rex-table-cell-selected-active-border-color: #96adc5;
 }
 ```
+
+## Example
+
+### Default:
+<Demo data={Default} />
+
+### Headerless:
+
+<Demo data={Headerless} />
 
 export default function MDXPage({ children }) {
   return <ComponentLayout componentName={"Table"}>{children}</ComponentLayout>;
