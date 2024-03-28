@@ -4,10 +4,8 @@ on:
   workflow_dispatch:
   pull_request:
     branches: [main]
-    paths: ["playwright/**/*", "core/**/*", ".github/workflows/tests.yml"]
   push:
     branches: [main]
-    paths: ["playwright/**/*", "core/**/*", ".github/workflows/tests.yml"]
 
 jobs:
   test:
