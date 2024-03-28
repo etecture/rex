@@ -7,6 +7,8 @@ import {
   createTheme,
 } from "@mantine/core";
 
+// Hello World
+
 import "@mantine/core/styles.layer.css";
 
 import "@mantine/code-highlight/styles.layer.css";
