@@ -1,6 +1,6 @@
 "use client";
 
-import { Table, type TableRowId, type TableColumn } from "@etecture/rex";
+import { Table, type TableColumn, type TableRowId } from "@etecture/rex";
 import { useState } from "react";
 
 const code = `
@@ -88,9 +88,7 @@ const Example = () => {
         getRowId={getRowId}
         selectedRows={selected}
         onSelectRow={({ id }) => setSelected((state) => [...state, id])}
-        onDeselectRow={({ id }) =>
-          setSelected((state) => state.toSpliced(state.indexOf(id), 1))
-        }
+        onDeselectRow={({ id }) => setSelected((state) => state.toSpliced(state.indexOf(id), 1))}
         data={staticData}
         columns={staticColumns}
         borders
