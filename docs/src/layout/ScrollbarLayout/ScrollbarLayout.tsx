@@ -1,4 +1,4 @@
-export default function FlexLayout({
+export default function ScrollbarLayout({
   children,
 }: {
   children: React.ReactNode;
