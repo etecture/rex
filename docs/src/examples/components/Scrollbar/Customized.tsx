@@ -11,24 +11,24 @@ import { Scrollbar } from "@etecture/rex";
 const Example = () => {
   return (
     <>
-      <Scrollbar
-      h={300}
-      w={400}
-      visibility="always"
-      horizontalScrollDisabled={false}
-      verticalScrollDisabled={false}
-      scrollDirection="vertical"
-      classNames={{
-        root: styles.rootCustomized,
-        verticalTrack: styles.customTrack,
-        horizontalTrack: styles.customTrack,
-        horizontalThumb: styles.horizontalThumb,
-        verticalThumb: styles.verticalThumb,
-      }}
-    >
-      <div style={{ width: 600 }}>{loremIpsum}</div>
-    </Scrollbar>
-  </>
+       <Scrollbar
+          h={300}
+          w={400}
+          visibility="always"
+          horizontalScrollDisabled={false}
+          verticalScrollDisabled={false}
+          scrollDirection="vertical"
+          classNames={{
+            root: styles.rootCustomized,
+            verticalTrack: styles.customTrack,
+            horizontalTrack: styles.customTrack,
+            horizontalThumb: styles.horizontalThumb,
+            verticalThumb: styles.verticalThumb
+          }}
+        >
+            <div style={{ width: 600 }}>{loremIpsum}</div>
+       </Scrollbar>
+   </>
   );
 };
 `;
@@ -78,23 +78,25 @@ const loremIpsum = (
 const Example = () => {
   return (
     <div style={{ padding: 25 }}>
-      <Scrollbar
-        h={300}
-        w={400}
-        visibility="always"
-        horizontalScrollDisabled={false}
-        verticalScrollDisabled={false}
-        scrollDirection="vertical"
-        classNames={{
-          root: styles.rootCustomized,
-          verticalTrack: styles.customTrack,
-          horizontalTrack: styles.customTrack,
-          horizontalThumb: styles.horizontalThumb,
-          verticalThumb: styles.verticalThumb,
-        }}
-      >
-        <div style={{ width: 600 }}>{loremIpsum}</div>
-      </Scrollbar>
+      <>
+        <Scrollbar
+          h={300}
+          w={400}
+          visibility="always"
+          horizontalScrollDisabled={false}
+          verticalScrollDisabled={false}
+          scrollDirection="vertical"
+          classNames={{
+            root: styles.rootCustomized,
+            verticalTrack: styles.customTrack,
+            horizontalTrack: styles.customTrack,
+            horizontalThumb: styles.horizontalThumb,
+            verticalThumb: styles.verticalThumb,
+          }}
+        >
+          <div style={{ width: 600 }}>{loremIpsum}</div>
+        </Scrollbar>
+      </>
     </div>
   );
 };
