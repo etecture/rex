@@ -1,4 +1,6 @@
-import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout";
+import { Demo } from "@/components/Demo";
+import { Default, Horizontal, Customized, FlexLayout } from "@/examples/components/Scrollbar";
 
 The Scrollbar is by default in an "auto" mode. It will try to take as much space as possible from its container.
 If its contents cannot fit the available space the scrollbars will be shown.
@@ -38,6 +40,30 @@ classNames?: {
 
 Since the default styles of the Scrollbar are layered, you can easily override everything.
 
+## Examples
+
+### Default Scrollbar:
+
+- Scroll Vertically
+
+<Demo data={Default} />
+
+### Horizontal Scrollbar:
+
+- Scroll Horizontally:
+
+<Demo data={Horizontal} />
+
+### Customized Scrollbar:
+
+<Demo data={Customized} />
+
+### Scrollbar in Flex-Layout
+
+<Demo data={FlexLayout} />
+
 export default function MDXPage({ children }) {
-  return <ComponentLayout componentName={"Scrollbar"}>{children}</ComponentLayout>;
+  return (
+    <ComponentLayout componentName={"Scrollbar"}>{children}</ComponentLayout>
+  );
 }
