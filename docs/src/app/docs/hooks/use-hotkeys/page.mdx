@@ -1,0 +1,35 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+import { Default } from "@/examples/hooks/useHotkeys"
+
+```tsx
+useHotkeys([
+  ["Escape", () => {}],
+  ["Tab", () => {}],
+  ["Control+g", () => {}, { preventDefault: true, stopPropagation: true }],
+]);
+```
+
+This hook lets you define hotkeys that trigger a callback. Multiple keys can be combined with the `+` delimiter.
+They keys correspond to the `event.key` strings.
+
+Every `useHotkeys` call will register a `keydown` and a `keyup` eventlistener so if you can it's better to register multiple hotkeys in one go.
+
+You can check out [https://www.toptal.com/developers/keycode](https://www.toptal.com/developers/keycode) to see the names for every key.
+
+## Custom target
+
+```tsx
+const elementRef = useRef<HTMLElement>(null);
+useHotkeys([["Enter", () => void 0]], { target: elementRef });
+```
+
+You can pass your own element as the target for the eventlisteners. By default it will use the global `document`.
+
+## Example
+
+<Demo data={Default} />
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"useHotkeys"}>{children}</ComponentLayout>;
+}

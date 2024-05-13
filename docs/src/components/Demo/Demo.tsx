@@ -12,7 +12,7 @@ export const Demo = (props: DemoProps) => {
   const { data } = props;
 
   return (
-    <Paper className={styles.container} withBorder mih={300} my={"sm"}>
+    <Paper className={styles.container} withBorder mih={300} my={"lg"}>
       <Box p={"sm"}>
         <Suspense>
           <data.component />
