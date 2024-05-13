@@ -25,6 +25,7 @@ const Nav: React.FC = () => {
           items={[
             { label: "useBreakpoint", route: "/docs/hooks/use-breakpoint" },
             { label: "useSwiper", route: "/docs/hooks/use-swiper" },
+            { label: "useHotkeys", route: "/docs/hooks/use-hotkeys" },
           ]}
         />
       </Stack>
