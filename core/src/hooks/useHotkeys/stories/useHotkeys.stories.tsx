@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useHotkeys } from "../useHotkeys";
 import { useState } from "react";
+import { useHotkeys } from "../useHotkeys";
 
 export default {
   title: "Hooks/useHotkeys",
