@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useToggle, type UseToggleProps } from "../useToggle";
+import { type UseToggleProps, useToggle } from "../useToggle";
 
 export default {
   title: "Hooks/useToggle",
