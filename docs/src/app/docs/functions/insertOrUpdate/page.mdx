@@ -1,0 +1,28 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+
+```tsx
+const source: Array<{ id: string; value: string }> = [];
+
+insertOrUpdate({ source, item: { id: "1", value: "foo" } });
+insertOrUpdate({ source, item: { id: "2", value: "bar" } });
+insertOrUpdate({ source, item: { id: "2", value: "baz" } }); // item with id "2" will get updated instead of inserted
+```
+
+Adds items to an array if it does not exist yet or updates an item if it was already present.
+
+The function compares the items by default via an `id` property. If the `source` parameter does not contain an `id` property the function will require you to pass an `identifier`.
+
+```tsx
+const source: Array<{ person: { id: string; name: string }; value: string }> = [];
+
+insertOrUpdate({
+  source,
+  item: { person: { id: "1", name: "Steve" }, value: "foo" },
+  identifier: (item) => item.person.id,
+});
+```
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"findKey"}>{children}</ComponentLayout>;
+}

@@ -1,0 +1,22 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+
+```tsx
+const source = {
+  A: "a",
+  B: "b",
+  C: "c",
+} as const;
+
+const target = findKey(source, "a"); // A
+const target = findKey(source, "b"); // B
+const target = findKey(source, "c"); // C
+```
+
+Returns the key of an object corresponding to the provided value.
+
+If there are multiple matching values it will return the first found key.
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"findKey"}>{children}</ComponentLayout>;
+}

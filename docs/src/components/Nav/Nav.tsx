@@ -20,6 +20,7 @@ const Nav: React.FC = () => {
             { label: "Swiper", route: "/docs/components/swiper" },
           ]}
         />
+
         <NavItemCategory
           label="hooks"
           items={[
@@ -27,6 +28,14 @@ const Nav: React.FC = () => {
             { label: "useSwiper", route: "/docs/hooks/use-swiper" },
             { label: "useHotkeys", route: "/docs/hooks/use-hotkeys" },
             { label: "useToggle", route: "/docs/hooks/use-toggle" },
+          ]}
+        />
+
+        <NavItemCategory
+          label="functions"
+          items={[
+            { label: "findKey", route: "/docs/functions/findKey" },
+            { label: "insertOrUpdate", route: "/docs/functions/insertOrUpdate" },
           ]}
         />
       </Stack>
