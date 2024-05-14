@@ -3,7 +3,7 @@ import { userEvent } from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { useHotkeys } from "./useHotkeys";
 
-describe("useBreakpoint", () => {
+describe("useHotkeys", () => {
   it("should trigger enter keydown", async () => {
     const enterCallback = vi.fn();
 
