@@ -7,18 +7,18 @@ const stories = storyDirectories
 
 const config: StorybookConfig = {
   stories,
-  addons: ["@storybook/addon-controls", "@storybook/addon-links", "@storybook/addon-actions", "@storybook/addon-docs", "@storybook/addon-viewport"],
+  addons: [
+    "@storybook/addon-controls",
+    "@storybook/addon-links",
+    "@storybook/addon-actions",
+    "@storybook/addon-docs",
+    "@storybook/addon-viewport"
+  ],
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
-  typescript: {
-    reactDocgen: "react-docgen-typescript",
-    reactDocgenTypescriptOptions: {},
-  },
+  docs: {},
 };
 
 export default config;

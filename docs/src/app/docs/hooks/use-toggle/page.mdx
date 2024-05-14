@@ -1,0 +1,31 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+import { Default } from "@/examples/hooks/useHotkeys"
+
+```tsx
+const [isOpen, handler] = useToggle();
+```
+
+This hook stores a simple boolean state and exposes some handlers to quickly open, close or toggle the value.
+
+```tsx
+// ...
+
+<Modal opened={isOpen} />
+
+// ...
+
+<Button onClick={handler.toggle} />
+<Button onClick={handler.open} />
+<Button onClick={handler.close} />
+```
+
+The initial value can be set like this:
+
+```tsx
+const [isOpen, handler] = useToggle({ initialValue: true });
+```
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"useToggle"}>{children}</ComponentLayout>;
+}

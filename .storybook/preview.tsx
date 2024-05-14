@@ -1,5 +1,4 @@
 import { Preview } from "@storybook/react";
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import rexTheme from "./rexTheme";
 
 import "./styles/globals.css";
@@ -10,7 +9,6 @@ const preview: Preview = {
       theme: rexTheme,
       source: "light",
     },
-    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       expanded: true,
       matchers: {
