@@ -6,6 +6,9 @@ const nextConfig = {
   output: "export",
   pageExtensions: ["ts", "tsx", "mdx"],
   basePath: process.env.BASE_PATH ?? "/rex",
+  experimental: {
+    optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+  },
 };
 
 const withMDX = createMDX({});

@@ -1,4 +1,4 @@
-import { type RefObject, useEffect, useMemo, useRef } from "react";
+import { type RefObject, useEffect, useRef, useState } from "react";
 
 interface HotkeyItemOptions {
   preventDefault?: boolean;
@@ -14,7 +14,14 @@ export interface UseHotkeysOptions {
 }
 
 export const useHotkeys = (hotkeys: HotkeyItem[], options?: UseHotkeysOptions) => {
-  const target = useMemo(() => options?.target?.current ?? document, [options?.target]);
+  const [target, setTarget] = useState<HTMLElement | Document | Window | null | undefined>(
+    options?.target?.current,
+  );
+
+  // Workaround for next.js SSR
+  useEffect(() => {
+    setTarget(options?.target?.current ?? document);
+  }, [options?.target]);
 
   const pressedKeys = useRef<string[]>([]);
 
@@ -46,12 +53,12 @@ export const useHotkeys = (hotkeys: HotkeyItem[], options?: UseHotkeysOptions) =
       pressedKeys.current.splice(pressedKeys.current.indexOf(event.key), 1);
     };
 
-    target.addEventListener("keydown", handleKeyDown as EventListenerOrEventListenerObject);
-    target.addEventListener("keyup", handleKeyUp as EventListenerOrEventListenerObject);
+    target?.addEventListener("keydown", handleKeyDown as EventListenerOrEventListenerObject);
+    target?.addEventListener("keyup", handleKeyUp as EventListenerOrEventListenerObject);
 
     return () => {
-      target.removeEventListener("keydown", handleKeyDown as EventListenerOrEventListenerObject);
-      target.removeEventListener("keyup", handleKeyUp as EventListenerOrEventListenerObject);
+      target?.removeEventListener("keydown", handleKeyDown as EventListenerOrEventListenerObject);
+      target?.removeEventListener("keyup", handleKeyUp as EventListenerOrEventListenerObject);
     };
   }, [target, hotkeys]);
 };

@@ -2,7 +2,12 @@
   "name": "@etecture/rex",
   "version": "0.5.0",
   "description": "Exotic components, hooks and functions that you wouldn't find in the usual react component library.",
-  "keywords": ["react", "components", "hooks", "utility"],
+  "keywords": [
+    "react",
+    "components",
+    "hooks",
+    "utility"
+  ],
   "homepage": "https://github.com/etecture/rex",
   "repository": {
     "type": "git",
@@ -27,7 +32,9 @@
     },
     "./styles.css": "./dist/styles.css"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "npm run cleanup && rexb build src/index.ts",
@@ -39,16 +46,16 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@tanstack/react-virtual": "^3.0.4",
-    "clsx": "^2.1.0",
-    "jotai": "^2.6.4"
+    "@tanstack/react-virtual": "^3.5.0",
+    "clsx": "^2.1.1",
+    "jotai": "^2.8.0"
   },
   "devDependencies": {
     "@etecture/rex-builder": "0.1.0",
-    "@types/react": "18.2.48",
-    "@types/react-dom": "18.2.18",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.3.3"
+    "@types/react": "18.3.2",
+    "@types/react-dom": "18.3.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "5.4.5"
   }
 }
