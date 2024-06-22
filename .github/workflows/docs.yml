@@ -2,10 +2,8 @@ name: Deploy Documentation
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths: ["docs/**/*", ".github/workflows/docs.yml"]
+  release:
+    types: [published]
 
 jobs:
   build-and-deploy:
