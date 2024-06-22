@@ -36,6 +36,7 @@ const Nav: React.FC = () => {
           items={[
             { label: "findKey", route: "/docs/functions/findKey" },
             { label: "insertOrUpdate", route: "/docs/functions/insertOrUpdate" },
+            { label: "moveElementInArray", route: "/docs/functions/moveElementInArray" },
           ]}
         />
       </Stack>

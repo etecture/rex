@@ -1,0 +1,31 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+
+```tsx
+
+// Move object
+const entries: Array<{ id: string; name: string }> = [
+  { id: "1", name: "Peter" },
+  { id: "2", name: "Petra" },
+  { id: "3", name: "Johann" },
+];
+
+const moveFromIndex: number = 0;
+const moveToIndex: number = 3;
+const updatedArray = moveElementInArray({ entries:entries, moveFromIndex: moveFromIndex, moveToIndex: moveToIndex });
+
+```
+```tsx
+// Move string
+const entries: Array<string> = ["A", "B", "C", "D"];
+
+const updatedArray = moveElementInArray({ entries:entries, moveFromIndex: 1, moveToIndex: 0 });
+
+```
+
+Moves items in an array using a startindex and a targetindex. The items do not have to be of a specific type.
+
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"moveElementInArray"}>{children}</ComponentLayout>;
+}
