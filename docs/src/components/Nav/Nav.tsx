@@ -28,6 +28,9 @@ const Nav: React.FC = () => {
             { label: "useSwiper", route: "/docs/hooks/use-swiper" },
             { label: "useHotkeys", route: "/docs/hooks/use-hotkeys" },
             { label: "useToggle", route: "/docs/hooks/use-toggle" },
+            { label: "useIsIdle", route: "/docs/hooks/use-is-idle" },
+            { label: "useOnChange", route: "/docs/hooks/use-on-change" },
+            { label: "usePrevious", route: "/docs/hooks/use-previous" },
           ]}
         />
 

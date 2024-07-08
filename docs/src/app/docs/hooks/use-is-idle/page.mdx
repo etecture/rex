@@ -1,0 +1,17 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+import { Default } from "@/examples/hooks/useIsIdle"
+
+```tsx
+const isIdle = useIsIdle({ idleAfterMs: 10000 })
+```
+
+This hook keeps track of user interactions and returns idle if the user didnt interact with the page for a set amount of time.
+
+## Example
+
+<Demo data={Default} />
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"useIsIdle"}>{children}</ComponentLayout>;
+}

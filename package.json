@@ -33,7 +33,6 @@
     "@storybook/manager-api": "^8.1.0",
     "@storybook/react": "^8.1.0",
     "@storybook/react-vite": "^8.1.0",
-    "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^8.1.0",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/jest-dom": "^6.4.5",
@@ -52,5 +51,10 @@
     "typescript": "^5.5.2",
     "vite": "^5.2.11",
     "vitest": "^1.6.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@testing-library/dom": "^10.1.0"
+    }
   }
 }

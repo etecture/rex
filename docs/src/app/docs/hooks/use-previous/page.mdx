@@ -1,0 +1,20 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+
+```tsx
+const [value, setValue] = useState("hello world");
+const previousValue = usePrevious(value)
+```
+
+This hook keeps track of the previous value of a state when the component rerenders. \
+Initially the returned value is null, you can pass options to configure this.
+
+```tsx
+usePrevious(value, { useInitialValueAsPrevious: true })
+```
+
+This will returns the passed value as the first previous value.
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"usePrevious"}>{children}</ComponentLayout>;
+}
