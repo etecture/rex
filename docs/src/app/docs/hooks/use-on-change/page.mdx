@@ -1,0 +1,20 @@
+import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
+import { Demo } from "@/components/Demo";
+
+```tsx
+const [value, setValue] = useState("hello world");
+
+const onChange = useCallback((changedValue: string) => {
+  console.log(changedValue)
+}, []);
+
+useOnChange({ value, onChange })
+```
+
+This hook triggers the passed onChange callback whenever the passed value is different to the one from the last render. It uses usePrevious under the hood.
+
+The check uses a shallow compare, if you pass an object you have to make sure that it is immutable.
+
+export default function MDXPage({ children }) {
+  return <ComponentLayout componentName={"useOnChange"}>{children}</ComponentLayout>;
+}

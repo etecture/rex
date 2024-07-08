@@ -4,3 +4,4 @@ export * from "./useSwiper/useSwiper";
 export * from "./useHotkeys/useHotkeys";
 export * from "./useToggle/useToggle";
 export * from "./useIsIdle/useIsIdle";
+export * from "./useOnChange/useOnChange";
