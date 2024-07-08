@@ -1,6 +1,6 @@
 {
   "name": "@etecture/rex",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Exotic components, hooks and functions that you wouldn't find in the usual react component library.",
   "keywords": [
     "react",
