@@ -30,6 +30,7 @@ const Nav: React.FC = () => {
             { label: "useToggle", route: "/docs/hooks/use-toggle" },
             { label: "useIsIdle", route: "/docs/hooks/use-is-idle" },
             { label: "useOnChange", route: "/docs/hooks/use-on-change" },
+            { label: "usePrevious", route: "/docs/hooks/use-previous" },
           ]}
         />
 
