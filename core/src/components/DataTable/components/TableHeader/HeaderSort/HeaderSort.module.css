@@ -1,0 +1,14 @@
+.headerSort {
+  opacity: var(--rex-table-header-sort-opacity);
+  display: inline-flex;
+  transition: opacity 240ms;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.sorted {
+    opacity: 1;
+  }
+}

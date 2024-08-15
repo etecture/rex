@@ -1,0 +1,82 @@
+@layer {
+  :root {
+    --rex-table-header-height: 36px;
+    --rex-table-header-padding: 0px 8px;
+    --rex-table-header-background-color: white;
+    --rex-table-header-shadow: 0px 0.8px 5.3px rgba(0, 0, 0, 0.02),
+      0px 2.7px 17.9px rgba(0, 0, 0, 0.03), 0px 12px 80px rgba(0, 0, 0, 0.05);
+    --rex-table-header-gap: 8px;
+
+    --rex-table-border-width: 0px;
+    --rex-table-border-color: #dbdbdb;
+
+    --rex-table-cell-background-color: white;
+    --rex-table-cell-even-background-color: #f9f9f9;
+    --rex-table-cell-hover-background-color: #efefef;
+    --rex-table-cell-active-background-color: #dfdfdf;
+    --rex-table-cell-selected-background-color: #c4d9ef;
+    --rex-table-cell-selected-hover-background-color: #b2c9e2;
+    --rex-table-cell-selected-active-background-color: #9eb5ce;
+    --rex-table-cell-padding: 4px 8px;
+
+    --rex-table-cell-border-vertical-width: 0px;
+    --rex-table-cell-border-horizontal-width: 0px;
+    --rex-table-cell-border-color: #dbdbdb;
+    --rex-table-cell-hover-border-color: #dfdfdf;
+    --rex-table-cell-active-border-color: #cecece;
+    --rex-table-cell-selected-border-color: #b2c9e2;
+    --rex-table-cell-selected-hover-border-color: #a8bfd8;
+    --rex-table-cell-selected-active-border-color: #96adc5;
+  }
+
+  .container {
+    border: var(--rex-table-border-width) solid
+      var(--rex-table-cell-border-color);
+
+    & table {
+      width: 100%;
+      border-collapse: var(--rex-table-border-collapse, separate);
+      border-spacing: var(--rex-table-border-spacing, 0);
+
+      & thead {
+        transition: box-shadow 150ms;
+      }
+    }
+
+    &.withTableBorders {
+      --rex-table-border-width: 1px;
+    }
+
+    &.withHorizontalBorders {
+      --rex-table-cell-border-horizontal-width: 1px;
+    }
+    &.withVerticalBorders {
+      --rex-table-cell-border-vertical-width: 1px;
+    }
+
+    &.stickyHeader {
+      & table {
+        & thead {
+          position: sticky;
+          top: 0;
+        }
+      }
+    }
+
+    &.scrolled {
+      & table {
+        & thead {
+          box-shadow: var(--rex-table-header-shadow);
+        }
+      }
+    }
+  }
+
+  .tableHead {
+    --rex-table-header-divider-opacity: 0;
+
+    &:hover {
+      --rex-table-header-divider-opacity: 1;
+    }
+  }
+}

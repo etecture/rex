@@ -1,0 +1,50 @@
+# Change table setup to strategy based
+
+- useDataTable hook for initial configuration
+  - columns
+    - They should only contain stuff that never changes again on runtime
+    - Columns should be memoized hard, so they never trigger a rerender
+    - Everything that may have to change on runtime must be passed via the state prop into the config hook
+  - raw rows
+    - Should be memoized strictly, they should only change if the actual data changed e.g. from the api
+    - Sorting and Filtering happens afterwards with the strategies
+  - enableSorting -> makes sortingStrategy and state.sorting required
+  - sortingStrategy
+    - provide a default strategy
+    - is a callback that is used to sort rows
+  - enableFiltering -> makes filterStrategy and state.filters required
+  - filterStrategy
+    - provide a default strategy
+    - is a callback that takes passed filters and is used to filter rows
+  - state
+    - Includes everything that may change on runtime
+    - filters
+    - sorting
+    - columnOrder as a simple columnId[] array
+    - columnWidths as Record<columnId, width>
+    - ...
+  - onSortingChange
+  - onFilterChange
+  - onSelectionChange
+  - onColumnWidthChange
+  - onColumnOrderChange
+  - onCellEditChange
+    - Triggers everytime a cell content was changed
+  - onCellEditCommit
+    - Triggers once the edit mode has been left
+    - Contains only changed rows, with original and edited versions
+- The Table should provide sane defaults ootb but everything is easily customizable with strategies
+- The Table forces every state to be controlled, useful hooks and types should make it as easy as possible though
+- Filter Components come from the developer, they are not part of the table
+  - A slot approach should be used to make it easy to hook into rendering the header to add a filter there or a filter toggle
+  - A good default should be a FilterToggle Icon that opens a popover that renders the passed Filter Component for that column
+- Sorting Toggle is builtin but can be easily replaced with a slot callback
+  - passes current sorting state as well as a callback to update the sorting state
+  - the slot callback should not use or interfere with outside state, everything happens back through the table and the callbacks on the initial config hook. This allows us to properly memoize the slot callbacks and prevent stale values
+- Every slot renderer passes a "Context" object that is properly typed and contains enough control over the tables state
+- Column Reordering is builtin with a good default strategy but can be overridden to customize the behaviour
+- Cell Editing
+  - Whole table can switch between view and edit mode
+  - In View mode every cell will render with an alternative cell renderer that has to be provided
+  - Table comes with arrow, tab, enter navigation etc. ootb
+  - (?) Should we handle edit state internally or also with controlled states from outside?

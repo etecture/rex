@@ -1,6 +1,6 @@
 import { ComponentLayout } from "../../../../layout/ComponentLayout/ComponentLayout"
 import { Demo } from "@/components/Demo";
-import { Default, Headerless } from "@/examples/components/Table"
+import { Default, Headerless } from "@/examples/components/DataTable"
 
 A simple data table with high customizability.
 
@@ -81,5 +81,5 @@ All table styles are wrapped in a `@layer` so you can easily override styles and
 <Demo data={Headerless} />
 
 export default function MDXPage({ children }) {
-  return <ComponentLayout componentName={"Table"}>{children}</ComponentLayout>;
+  return <ComponentLayout componentName={"DataTable"}>{children}</ComponentLayout>;
 }
