@@ -6,9 +6,7 @@
       var(--rex-table-cell-border-color, #dbdbdb);
     border-bottom: var(--rex-table-cell-border-horizontal-width, 1px) solid
       var(--rex-table-cell-border-color, #dbdbdb);
-    transition:
-      background-color 100ms,
-      border-color 100ms;
+    transition: background-color 100ms, border-color 100ms;
 
     &:last-child {
       border-right: 0;

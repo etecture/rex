@@ -12,19 +12,11 @@
 }
 
 .horizontalThumb {
-  background: linear-gradient(
-    90deg,
-    rgba(153, 51, 231, 1) 0%,
-    rgba(252, 70, 107, 1) 100%
-  ) !important;
+  background: linear-gradient(90deg, rgba(153, 51, 231, 1) 0%, rgba(252, 70, 107, 1) 100%) !important;
   margin-top: -1px !important;
 }
 
 .verticalThumb {
-  background: linear-gradient(
-    180deg,
-    rgba(153, 51, 231, 1) 0%,
-    rgba(252, 70, 107, 1) 100%
-  ) !important;
+  background: linear-gradient(180deg, rgba(153, 51, 231, 1) 0%, rgba(252, 70, 107, 1) 100%) !important;
   margin-left: -1px !important;
 }

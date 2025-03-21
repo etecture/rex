@@ -2,10 +2,8 @@
   .header {
     height: var(--rex-table-header-height);
     background-color: var(--rex-table-header-background-color);
-    border-bottom: var(--rex-table-cell-border-horizontal-width) solid
-      var(--rex-table-border-color);
-    border-right: var(--rex-table-cell-border-vertical-width) solid
-      var(--rex-table-border-color);
+    border-bottom: var(--rex-table-cell-border-horizontal-width) solid var(--rex-table-border-color);
+    border-right: var(--rex-table-cell-border-vertical-width) solid var(--rex-table-border-color);
     text-align: var(--rex-table-header-text-align, left);
     padding: var(--rex-table-header-padding);
 

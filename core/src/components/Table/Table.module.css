@@ -3,8 +3,8 @@
     --rex-table-header-height: 36px;
     --rex-table-header-padding: 0px 8px;
     --rex-table-header-background-color: white;
-    --rex-table-header-shadow: 0px 0.8px 5.3px rgba(0, 0, 0, 0.02),
-      0px 2.7px 17.9px rgba(0, 0, 0, 0.03), 0px 12px 80px rgba(0, 0, 0, 0.05);
+    --rex-table-header-shadow: 0px 0.8px 5.3px rgba(0, 0, 0, 0.02), 0px 2.7px 17.9px
+      rgba(0, 0, 0, 0.03), 0px 12px 80px rgba(0, 0, 0, 0.05);
 
     --rex-table-border-width: 0px;
     --rex-table-border-color: #dbdbdb;
@@ -29,8 +29,7 @@
   }
 
   .container {
-    border: var(--rex-table-border-width) solid
-      var(--rex-table-cell-border-color);
+    border: var(--rex-table-border-width) solid var(--rex-table-cell-border-color);
 
     & table {
       width: 100%;

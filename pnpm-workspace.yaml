@@ -1,4 +1,7 @@
 packages:
-  - "core/**"
-  - "tools/**"
-  - "docs/**"
+  - core/**
+  - tools/**
+  - docs/**
+onlyBuiltDependencies:
+  - '@biomejs/biome'
+  - esbuild

@@ -3,59 +3,37 @@
     cursor: pointer;
 
     &:hover {
-      --rex-table-cell-background-color: var(
-        --rex-table-cell-hover-background-color
-      );
-      --rex-table-cell-even-background-color: var(
-        --rex-table-cell-hover-background-color
-      );
+      --rex-table-cell-background-color: var(--rex-table-cell-hover-background-color);
+      --rex-table-cell-even-background-color: var(--rex-table-cell-hover-background-color);
 
       --rex-table-cell-border-color: var(--rex-table-cell-hover-border-color);
     }
 
     &:active {
-      --rex-table-cell-background-color: var(
-        --rex-table-cell-active-background-color
-      );
-      --rex-table-cell-even-background-color: var(
-        --rex-table-cell-active-background-color
-      );
+      --rex-table-cell-background-color: var(--rex-table-cell-active-background-color);
+      --rex-table-cell-even-background-color: var(--rex-table-cell-active-background-color);
 
       --rex-table-cell-border-color: var(--rex-table-cell-active-border-color);
     }
   }
 
   &.selected {
-    --rex-table-cell-background-color: var(
-      --rex-table-cell-selected-background-color
-    );
+    --rex-table-cell-background-color: var(--rex-table-cell-selected-background-color);
 
     --rex-table-cell-border-color: var(--rex-table-cell-selected-border-color);
 
     &:hover {
-      --rex-table-cell-background-color: var(
-        --rex-table-cell-selected-hover-background-color
-      );
-      --rex-table-cell-even-background-color: var(
-        --rex-table-cell-selected-hover-background-color
-      );
+      --rex-table-cell-background-color: var(--rex-table-cell-selected-hover-background-color);
+      --rex-table-cell-even-background-color: var(--rex-table-cell-selected-hover-background-color);
 
-      --rex-table-cell-border-color: var(
-        --rex-table-cell-selected-hover-border-color
-      );
+      --rex-table-cell-border-color: var(--rex-table-cell-selected-hover-border-color);
     }
 
     &:active {
-      --rex-table-cell-background-color: var(
-        --rex-table-cell-selected-active-background-color
-      );
-      --rex-table-cell-even-background-color: var(
-        --rex-table-cell-selected-active-background-color
-      );
+      --rex-table-cell-background-color: var(--rex-table-cell-selected-active-background-color);
+      --rex-table-cell-even-background-color: var(--rex-table-cell-selected-active-background-color);
 
-      --rex-table-cell-border-color: var(
-        --rex-table-cell-selected-active-border-color
-      );
+      --rex-table-cell-border-color: var(--rex-table-cell-selected-active-border-color);
     }
   }
 

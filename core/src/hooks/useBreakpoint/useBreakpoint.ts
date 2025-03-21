@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 /**
  * Defines a value for each breakpoint
@@ -52,7 +52,10 @@ export const useBreakpoint = <Values extends BreakpointValues>(
   values?: Values,
   breakpoints: Partial<Breakpoints> = DEFAULT_BREAKPOINTS,
 ): UseBreakpointResult<Values["xs"]> => {
-  const mergedBreakpoints = { ...DEFAULT_BREAKPOINTS, ...breakpoints };
+  const mergedBreakpoints = useMemo(
+    () => ({ ...DEFAULT_BREAKPOINTS, ...breakpoints }),
+    [breakpoints],
+  );
 
   const getBreakpoint = useCallback(() => {
     let _breakpoint: BreakpointKey = "xs";
