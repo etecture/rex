@@ -1,5 +1,8 @@
+import type { VirtualItem } from "@tanstack/react-virtual";
 import clsx from "clsx";
+import { useMemo } from "react";
 import type { DefaultTableRow } from "../../interface/DefaultTableRow";
+import type { TableCellClassNames, TableRowClassNames } from "../../interface/TableClassNames";
 import type { TableColumn } from "../../interface/TableColumn";
 import type { OnDeselectRow, OnSelectRow } from "../../interface/TableProps";
 import { TableCell } from "../TableCell/TableCell";
@@ -7,21 +10,32 @@ import styles from "./TableRow.module.css";
 
 export type TableRowProps<TRow extends DefaultTableRow> = {
   id: string | number;
-  index: number;
   row: TRow;
   columns: TableColumn<TRow>[];
-  height: string | number;
+  virtualItem: VirtualItem;
   striped: boolean;
   isSelected: boolean;
+  classNames?: TableRowClassNames;
+  measureElement: (node: Element | null | undefined) => void;
   onSelectRow: OnSelectRow<TRow> | undefined;
   onDeselectRow: OnDeselectRow<TRow> | undefined;
 };
 
 const TableRow = <TRow extends DefaultTableRow>(props: TableRowProps<TRow>) => {
-  const { id, index, row, columns, height, striped, isSelected, onSelectRow, onDeselectRow } =
-    props;
+  const {
+    id,
+    virtualItem,
+    row,
+    columns,
+    striped,
+    isSelected,
+    classNames,
+    measureElement,
+    onSelectRow,
+    onDeselectRow,
+  } = props;
 
-  const isStriped = striped && index % 2 === 0;
+  const isStriped = striped && virtualItem.index % 2 === 0;
 
   const handleRowClick = () => {
     if (isSelected) {
@@ -33,14 +47,28 @@ const TableRow = <TRow extends DefaultTableRow>(props: TableRowProps<TRow>) => {
 
   const selectable = (onSelectRow && !isSelected) || (onDeselectRow && isSelected);
   const rowClasses = clsx(
+    classNames?.tableRow,
     styles.row,
     selectable && styles.selectable,
     isSelected && styles.selected,
     isStriped && styles.striped,
   );
 
+  const cellClasses: TableCellClassNames = useMemo(
+    () => ({
+      tableCell: clsx(styles.rowCell, classNames?.tableCell),
+      tableCellContent: classNames?.tableCellContent,
+    }),
+    [classNames],
+  );
+
   return (
-    <tr className={rowClasses} onClick={handleRowClick}>
+    <tr
+      className={rowClasses}
+      onClick={handleRowClick}
+      ref={measureElement}
+      data-index={virtualItem.index}
+    >
       {columns.map((column, index) => {
         return (
           <TableCell
@@ -48,9 +76,8 @@ const TableRow = <TRow extends DefaultTableRow>(props: TableRowProps<TRow>) => {
             column={column}
             row={row}
             isSelected={isSelected}
-            height={height}
             isLast={columns.length - 1 === index}
-            classNames={styles.rowCell}
+            classNames={cellClasses}
           />
         );
       })}

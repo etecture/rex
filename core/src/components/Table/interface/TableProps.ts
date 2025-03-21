@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
 import type { DefaultTableRow } from "./DefaultTableRow";
 import type { TableBorders } from "./TableBorders";
+import type { TableClassNames } from "./TableClassNames";
 import type { TableColumn } from "./TableColumn";
 import type { TableRowId } from "./TableRowId";
 
 export type GetRowId<TRow extends DefaultTableRow> = (row: TRow) => TableRowId;
-export type GetRowHeight<TRow extends DefaultTableRow> = (row: TRow, index: number) => number;
+export type EstimateRowHeight<TRow extends DefaultTableRow> = (row: TRow, index: number) => number;
 
 export type OnSelectRowProps<TRow extends DefaultTableRow> = { row: TRow; id: TableRowId };
 export type OnSelectRow<TRow extends DefaultTableRow> = (props: OnSelectRowProps<TRow>) => void;
@@ -18,6 +20,11 @@ export interface TableProps<TRow extends DefaultTableRow>
   columns: TableColumn<TRow>[];
 
   /**
+   * Rendered when data is empty
+   */
+  noDataContent?: ReactNode;
+
+  /**
    * Should return a unique identifier for the corresponding row that doesn't change
    * @param row the dataset for the corresponding row
    * @returns a unique identifier
@@ -25,10 +32,10 @@ export interface TableProps<TRow extends DefaultTableRow>
   getRowId: GetRowId<TRow>;
 
   /**
-   * Used to determine the height of each row
-   * @default 36
+   * Used to estimate the row height until its measured after being rendered.
+   * The closer the estimated value is to the actual row height the smoother the scrolling will appear.
    */
-  getRowHeight?: GetRowHeight<TRow>;
+  estimateRowHeight?: EstimateRowHeight<TRow>;
 
   /**
    * The amount of rows rendered out of view
@@ -69,4 +76,9 @@ export interface TableProps<TRow extends DefaultTableRow>
    * @default false
    */
   stripedRows?: boolean;
+
+  /**
+   * A set of class names for each element of the table
+   */
+  classNames?: TableClassNames;
 }

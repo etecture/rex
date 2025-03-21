@@ -1,0 +1,34 @@
+.scrollContainer {
+  padding: 3px;
+  border: 2px dashed gray;
+}
+
+.table {
+  background-color: aliceblue;
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+
+.tableHeader {
+  background-color: transparent;
+
+  & th {
+    border: 0;
+  }
+}
+
+.tableRow {
+  background-color: transparent;
+}
+
+.tableCell {
+  border: 0;
+}
+
+.tableCellContent {
+  border: 1px dashed #aaa;
+}
+
+.pre {
+  padding: 25px;
+}

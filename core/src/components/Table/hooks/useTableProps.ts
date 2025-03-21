@@ -1,8 +1,10 @@
+import type { ReactNode } from "react";
 import type { DefaultTableRow } from "../interface/DefaultTableRow";
 import type { TableBorders } from "../interface/TableBorders";
+import type { TableClassNames } from "../interface/TableClassNames";
 import type { TableColumn } from "../interface/TableColumn";
 import type {
-  GetRowHeight,
+  EstimateRowHeight,
   GetRowId,
   OnDeselectRow,
   OnSelectRow,
@@ -18,11 +20,13 @@ export type ComposedTableProps<TRow extends DefaultTableRow> = {
   stripedRows: boolean;
   borders: TableBorders;
   selectedRows: TableRowId[];
-  className?: string;
+  noDataContent?: ReactNode;
+  className: string | undefined;
+  classNames: TableClassNames | undefined;
   getRowId: GetRowId<TRow>;
-  getRowHeight: GetRowHeight<TRow>;
-  onSelectRow?: OnSelectRow<TRow>;
-  onDeselectRow?: OnDeselectRow<TRow>;
+  estimateRowHeight: EstimateRowHeight<TRow> | undefined;
+  onSelectRow: OnSelectRow<TRow> | undefined;
+  onDeselectRow: OnDeselectRow<TRow> | undefined;
   divProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 };
 
@@ -31,13 +35,15 @@ export const useTableProps = <TRow extends DefaultTableRow>(props: TableProps<TR
     columns,
     data,
     className,
+    classNames,
     getRowId,
     overscan,
-    getRowHeight,
+    estimateRowHeight,
     stickyHeader,
     stripedRows,
     borders,
     selectedRows,
+    noDataContent,
     onSelectRow,
     onDeselectRow,
     ...divProps
@@ -62,14 +68,16 @@ export const useTableProps = <TRow extends DefaultTableRow>(props: TableProps<TR
     data: data,
     getRowId,
     overscan: overscan ?? 5,
-    getRowHeight: getRowHeight ?? (() => 36),
+    estimateRowHeight,
     stickyHeader: stickyHeader ?? true,
     stripedRows: stripedRows ?? false,
     borders: _borders,
     selectedRows: _selectedRows,
-    onSelectRow: onSelectRow,
-    onDeselectRow: onDeselectRow,
+    noDataContent,
+    onSelectRow,
+    onDeselectRow,
     className,
+    classNames,
     divProps: divProps,
   } as const satisfies ComposedTableProps<TRow>;
 };

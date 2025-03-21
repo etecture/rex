@@ -1,4 +1,6 @@
+import type { ReactNode } from "react";
 import { Table, type TableColumn } from "../../../core/src";
+import styles from "./DefaultTable.story.module.css";
 
 type MyData = { id: number; a: string; b: string; c: number };
 
@@ -28,10 +30,12 @@ const DefaultTableStory = (props: DefaultTableStoryProps) => {
     c: index * Math.random() * 100,
   }));
 
+  const defaultRenderer = (value: ReactNode) => <div style={{ height: rowHeight }}>{value}</div>;
+
   let columns: TableColumn<MyData>[] = [
-    { id: "a", accessor: "a", header: "A" },
-    { id: "b", accessor: "b", header: "B" },
-    { id: "c", accessor: "c", header: "C" },
+    { id: "a", accessor: "a", cellRenderer: ({ row }) => defaultRenderer(row.a) },
+    { id: "b", accessor: "b", cellRenderer: ({ row }) => defaultRenderer(row.b) },
+    { id: "c", accessor: "c", cellRenderer: ({ row }) => defaultRenderer(row.c) },
   ];
 
   if (withHeaders) {
@@ -39,12 +43,11 @@ const DefaultTableStory = (props: DefaultTableStoryProps) => {
   }
 
   return (
-    <div style={{ height: wrapperHeight }}>
+    <div style={{ height: wrapperHeight }} className={styles.container}>
       <Table
         data={data}
         columns={columns}
         getRowId={(row) => row.id}
-        getRowHeight={() => rowHeight}
         stickyHeader={stickyHeader}
         overscan={overscan}
       />

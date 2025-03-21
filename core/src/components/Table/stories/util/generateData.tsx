@@ -54,7 +54,9 @@ export const genericColumns: TableColumn<GenericData>[] = [
   {
     id: "img",
     header: "Image",
-    cellRenderer: ({ row }) => <img height={50} src={row.image} alt="lorem picsum" />,
+    cellRenderer: ({ row }) => (
+      <img height={42} src={row.image} alt="lorem picsum" style={{ borderRadius: 8 }} />
+    ),
     width: "content",
   },
   {
@@ -92,3 +94,18 @@ export const genericColumns: TableColumn<GenericData>[] = [
     ),
   },
 ];
+
+export const dynamicHeightColumns: TableColumn<GenericData>[] = genericColumns.map((col) => {
+  if (col.id === "description") {
+    return {
+      ...col,
+      cellRenderer: ({ row }) => (
+        <div style={{ textWrap: "wrap" }} title={row.description}>
+          {row.description}
+        </div>
+      ),
+    } satisfies TableColumn<GenericData>;
+  }
+
+  return col;
+});
