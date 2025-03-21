@@ -6,15 +6,11 @@ A simple data table with high customizability.
 
 > If you're looking for a feature-rich table you might want to have a look at [mantine datatable](https://icflorescu.github.io/mantine-datatable/) or [mantine-react-table](https://www.mantine-react-table.com/)
 
-## Why should I use this table?
+## Features
 
-_You probably shouldn't_.
-
-Tables are often an excuse for displaying huge amounts of complex data without actually thinking about the underlying use case. Before resorting to a table for data visualization it's recommended to first analyze what information the user actually wants to find and then display that as concise as possible.
-
-If you find yourself at a point where there really is no other solution than using a table for data visualization then you can have a look at this component. It tries to offer most basic table needs in a very simple but also customizable way.
-
-**This table only covers virtualization and simple layouting.** You will have to implement advanced features like **sorting**, **filtering** etc. yourself.
+- Simple semantic table with native table elements
+- Virtualization powered by @tanstack/virtual
+- Column configurations with custom renderers
 
 ## Usage
 
@@ -38,15 +34,15 @@ return (
 
 ## CSS Vars
 
-All table styles are wrapped in a `@layer` so you can easily override styles and css vars somewhere in your css.
+All table styles are wrapped in a `@layer` so you can easily override styles and css vars anywhere in your css.
 
 ```css
 :root {
   --rex-table-header-height: 36px;
   --rex-table-header-padding: 0px 8px;
   --rex-table-header-background-color: white;
-  --rex-table-header-shadow: 0px 0.8px 5.3px rgba(0, 0, 0, 0.02),
-    0px 2.7px 17.9px rgba(0, 0, 0, 0.03), 0px 12px 80px rgba(0, 0, 0, 0.05);
+  --rex-table-header-shadow: 0px 0.8px 5.3px rgba(0, 0, 0, 0.02), 0px 2.7px 17.9px
+    rgba(0, 0, 0, 0.03), 0px 12px 80px rgba(0, 0, 0, 0.05);
 
   --rex-table-border-width: 0px;
   --rex-table-border-color: #dbdbdb;
@@ -56,6 +52,7 @@ All table styles are wrapped in a `@layer` so you can easily override styles and
   --rex-table-cell-hover-background-color: #efefef;
   --rex-table-cell-active-background-color: #dfdfdf;
   --rex-table-cell-selected-background-color: #c4d9ef;
+  --rex-table-cell-selected-even-background-color: #b3cae2;
   --rex-table-cell-selected-hover-background-color: #b2c9e2;
   --rex-table-cell-selected-active-background-color: #9eb5ce;
   --rex-table-cell-padding: 4px 8px;
