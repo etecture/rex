@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import type { TableProps } from ".";
-import { Table } from "./Table";
 import type { TableColumn } from "./interface/TableColumn";
+import { Table } from "./Table";
 
 type MyData = { a: string; b: string; c: number; d: number[] };
 

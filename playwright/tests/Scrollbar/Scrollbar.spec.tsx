@@ -3,8 +3,6 @@ import { test } from "@playwright/experimental-ct-react";
 import { Scrollbar } from "../../../core/src/components";
 import { expect } from "../../expect";
 
-test.use({ viewport: { width: 1920, height: 1080 } });
-
 test.describe("Scrollbar", () => {
   test("shows vertical scrollbar", async ({ mount }) => {
     const component = await mount(

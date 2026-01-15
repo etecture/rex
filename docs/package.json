@@ -5,34 +5,33 @@
   "scripts": {
     "dev": "bun docgen && next dev",
     "build": "bun docgen && next build",
-    "start": "next start",
     "lint": "next lint",
     "docgen": "bun run ./docgen/generate.ts"
   },
   "dependencies": {
     "@etecture/rex": "workspace:*",
-    "@mantine/code-highlight": "7.6.1",
-    "@mantine/core": "7.6.1",
-    "@mantine/hooks": "7.6.1",
-    "@mdx-js/loader": "^3.0.0",
-    "@mdx-js/react": "^3.0.0",
-    "@next/mdx": "14.1.4",
-    "@tabler/icons-react": "^2.46.0",
-    "@types/mdx": "^2.0.10",
-    "clsx": "^2.1.0",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-docgen-typescript": "^2.2.2",
-    "react-dom": "^18"
+    "@mantine/code-highlight": "8.3.12",
+    "@mantine/core": "8.3.12",
+    "@mantine/hooks": "8.3.12",
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "16.1.2",
+    "@tabler/icons-react": "^3.36.1",
+    "@types/mdx": "^2.0.13",
+    "clsx": "^2.1.1",
+    "next": "16.1.2",
+    "react": "^19.2.3",
+    "react-docgen-typescript": "^2.4.0",
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.1.0",
-    "@types/node": "^20.11.5",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "14.1.0",
-    "eslint-config-prettier": "^9.1.0",
-    "typescript": "^5.3.3"
+    "@next/bundle-analyzer": "^16.1.2",
+    "@types/node": "^25.0.8",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "16.1.2",
+    "eslint-config-prettier": "^10.1.8",
+    "typescript": "^5.9.3"
   }
 }

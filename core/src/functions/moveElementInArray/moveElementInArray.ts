@@ -20,7 +20,6 @@ export const moveElementInArray = <T>(props: MoveElementInArrayProps<T>): Array<
   const { entries, moveFromIndex, moveToIndex } = props;
 
   if (moveFromIndex < 0 || moveFromIndex >= entries.length) {
-    console.error("moveFromIndex out of bounds");
     return entries;
   }
 

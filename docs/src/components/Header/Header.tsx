@@ -15,15 +15,11 @@ const Header = () => {
       </Group>
 
       <Group>
-        <ActionIcon
-          color="dark.4"
-          size={"lg"}
-          p={4}
-          component={Link}
-          href={"https://github.com/etecture/rex"}
-        >
-          <IconGithub fill="white" />
-        </ActionIcon>
+        <Link href="https://github.com/etecture/rex">
+          <ActionIcon color="dark.4" size={"lg"} p={4}>
+            <IconGithub fill="white" />
+          </ActionIcon>
+        </Link>
       </Group>
     </Group>
   );

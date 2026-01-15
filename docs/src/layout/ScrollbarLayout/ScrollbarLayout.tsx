@@ -1,8 +1,4 @@
-export default function ScrollbarLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ScrollbarLayout({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ height: 400, padding: 30 }}>
       <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>

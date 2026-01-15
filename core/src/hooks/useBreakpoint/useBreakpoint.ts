@@ -84,7 +84,7 @@ export const useBreakpoint = <Values extends BreakpointValues>(
     };
   }, [getBreakpoint]);
 
-  let returnValue: unknown | undefined = undefined;
+  let returnValue: unknown | undefined;
   if (typeof values !== "undefined") {
     const breakpointKeys = ["xs", "sm", "md", "lg", "xl"] as const;
 

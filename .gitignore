@@ -1,7 +1,15 @@
+# package manager
 node_modules
+
+# outputs
 dist
 storybook-static
+
+# testing
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# storybook
+debug-storybook.log

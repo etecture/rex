@@ -42,8 +42,8 @@
     "dev": "rexb build src/index.ts --watch"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
   },
   "dependencies": {
     "@tanstack/react-virtual": "^3.13.4",

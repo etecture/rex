@@ -2,8 +2,6 @@ import { test } from "@playwright/experimental-ct-react";
 import { expect } from "../../expect";
 import { DefaultTableStory } from "./DefaultTable.story";
 
-test.use({ viewport: { width: 1920, height: 1080 } });
-
 test.describe("Table", () => {
   test("renders", async ({ mount }) => {
     const component = await mount(<DefaultTableStory />);

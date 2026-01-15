@@ -1,12 +1,12 @@
-import path from "path";
-import { watch } from "fs/promises";
-import { program } from "commander";
-import { readFileSync } from "fs";
-import { OutputOptions, rollup } from "rollup";
-import typescriptPlugin from "@rollup/plugin-typescript";
-import postcssPlugin, { PostCSSPluginConf } from "rollup-plugin-postcss";
-import postcssPresetEnv from "postcss-preset-env";
+import { readFileSync } from "node:fs";
+import { watch } from "node:fs/promises";
+import path from "node:path";
 import terserPlugin from "@rollup/plugin-terser";
+import typescriptPlugin from "@rollup/plugin-typescript";
+import { program } from "commander";
+import postcssPresetEnv from "postcss-preset-env";
+import { type OutputOptions, rollup } from "rollup";
+import postcssPlugin, { type PostCSSPluginConf } from "rollup-plugin-postcss";
 
 program
   .command("build")
@@ -23,7 +23,8 @@ program
     const pkgJsonRaw = readFileSync(pkgJsonPath);
     const pkgJson = JSON.parse(pkgJsonRaw.toString());
 
-    const peerDependencies = "peerDependencies" in pkgJson ? Object.keys(pkgJson.peerDependencies) : [];
+    const peerDependencies =
+      "peerDependencies" in pkgJson ? Object.keys(pkgJson.peerDependencies) : [];
     const directDependencies = "dependencies" in pkgJson ? Object.keys(pkgJson.dependencies) : [];
 
     const postcssConfig: PostCSSPluginConf = {

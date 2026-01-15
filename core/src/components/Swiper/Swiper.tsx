@@ -1,6 +1,6 @@
 import { type ReactNode, useRef } from "react";
-import { Scrollbar, type ScrollbarProps } from "..";
 import { type UseSwiperProps, useSwiper } from "../..";
+import { Scrollbar, type ScrollbarProps } from "..";
 
 export interface SwiperProps extends Partial<UseSwiperProps> {
   children?: ReactNode;

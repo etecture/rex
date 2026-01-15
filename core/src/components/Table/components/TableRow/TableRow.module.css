@@ -28,7 +28,9 @@
 
     &:active {
       --rex-table-cell-background-color: var(--rex-table-cell-selected-active-background-color);
-      --rex-table-cell-even-background-color: var(--rex-table-cell-selected-active-background-color);
+      --rex-table-cell-even-background-color: var(
+        --rex-table-cell-selected-active-background-color
+      );
       --rex-table-cell-border-color: var(--rex-table-cell-selected-active-border-color);
     }
   }

@@ -62,7 +62,10 @@
       height: calc(var(--rex-scrollbar-width, 10px) - calc(var(--rex-scrollbar-padding, 1px) * 2));
 
       & .scrollbarThumb {
-        height: calc(var(--rex-scrollbar-width, 10px) - calc(var(--rex-scrollbar-padding, 1px) * 2));
+        height: calc(
+          var(--rex-scrollbar-width, 10px) -
+          calc(var(--rex-scrollbar-padding, 1px) * 2)
+        );
         width: 50%;
         min-width: 40px;
       }
@@ -76,7 +79,9 @@
       opacity: 0;
       visibility: hidden;
       z-index: 1;
-      transition: opacity 240ms, visibility 240ms;
+      transition:
+        opacity 240ms,
+        visibility 240ms;
 
       & .scrollbarThumb {
         position: absolute;

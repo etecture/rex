@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { useState } from "react";
 import { Swiper } from "../Swiper";
@@ -42,17 +42,15 @@ export const Default: Story = {
 export const TabScroller: Story = {
   render: (args) => {
     const [activeTab, setActiveTab] = useState(1);
+    const buttons = new Array(30).fill("").map((_, index) => index);
 
     return (
       <div style={{ width: 1000, border: "2px dashed gray" }}>
         <Swiper {...args}>
           <div style={{ display: "flex", flexWrap: "nowrap" }}>
-            {new Array(30).fill("").map((_, index) => (
+            {buttons.map((index) => (
               <button
-                key={`button_${
-                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                  index
-                }`}
+                key={`button_${index}`}
                 type="button"
                 style={{ width: 150, flexShrink: 0, height: 80, border: "1px solid gray" }}
                 onClick={() => setActiveTab(index + 1)}

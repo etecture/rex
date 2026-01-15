@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { useState } from "react";
-import { Table } from "../Table";
 import type { DefaultTableRow } from "../interface/DefaultTableRow";
 import type { TableColumn } from "../interface/TableColumn";
 import type { TableProps } from "../interface/TableProps";
 import type { TableRowId } from "../interface/TableRowId";
+import { Table } from "../Table";
 import styles from "./Table.stories.module.css";
 import { dynamicHeightColumns, generateData, genericColumns } from "./util/generateData";
 

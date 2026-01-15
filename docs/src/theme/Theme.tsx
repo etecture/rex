@@ -2,9 +2,9 @@
 
 import {
   Container,
+  createTheme,
   type DefaultMantineColor,
   type MantineColorsTuple,
-  createTheme,
 } from "@mantine/core";
 
 import "@mantine/core/styles.layer.css";

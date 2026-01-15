@@ -1,3 +1,3 @@
 export * from "./Scrollbar/Scrollbar";
-export * from "./Table";
 export * from "./Swiper";
+export * from "./Table";

@@ -1,7 +1,7 @@
 "use client";
 
-import ScrollbarLayout from "@/layout/ScrollbarLayout/ScrollbarLayout";
 import { Scrollbar } from "@etecture/rex";
+import ScrollbarLayout from "@/layout/ScrollbarLayout/ScrollbarLayout";
 
 const code = `
 import ScrollbarLayout from "@/layout/ScrollbarLayout/ScrollbarLayout";

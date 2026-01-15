@@ -1,4 +1,4 @@
-import { Preview } from "@storybook/react";
+import { Preview } from "@storybook/react-vite";
 import rexTheme from "./rexTheme";
 
 import "./styles/globals.css";
@@ -17,7 +17,7 @@ const preview: Preview = {
       },
     },
     viewport: {
-      viewports: {
+      options: {
         xs: {
           name: "XS",
           styles: {

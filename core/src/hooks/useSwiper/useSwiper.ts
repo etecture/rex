@@ -4,14 +4,14 @@ export type UseSwiperProps = {
   /**
    * The reference to the element that should scroll
    */
-  viewportRef: RefObject<HTMLElement>;
+  viewportRef: RefObject<HTMLElement | null>;
 
   /**
    * The reference to the element that should handle the drag events
    * Will use the viewportRef by default
    * @default viewportRef
    */
-  dragRef?: RefObject<HTMLElement>;
+  dragRef?: RefObject<HTMLElement | null>;
 
   /**
    * Controls the base velocity strength when swiping, higher number means faster scroll after releasing the mouse

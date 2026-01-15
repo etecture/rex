@@ -2,7 +2,6 @@ import { useVirtualizer } from "@tanstack/react-virtual";
 import clsx from "clsx";
 import { type ElementRef, useCallback, useMemo, useRef } from "react";
 import { Scrollbar } from "..";
-import styles from "./Table.module.css";
 import { TableHeader } from "./components/TableHeader/TableHeader";
 import { TableRow } from "./components/TableRow/TableRow";
 import { useIsScrolled } from "./hooks/useIsScrolled";
@@ -10,6 +9,7 @@ import { useTableProps } from "./hooks/useTableProps";
 import type { DefaultTableRow } from "./interface/DefaultTableRow";
 import type { TableRowClassNames } from "./interface/TableClassNames";
 import type { TableProps } from "./interface/TableProps";
+import styles from "./Table.module.css";
 
 const Table = <TRow extends DefaultTableRow>(props: TableProps<TRow>) => {
   const tableProps = useTableProps(props);
